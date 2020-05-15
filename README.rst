@@ -1,4 +1,4 @@
-Python Client for Cloud BigQuery Reservation
+Python Client for BigQuery Reservation API
 =================================================
 
 |beta| |pypi| |versions|
@@ -13,8 +13,8 @@ Python Client for Cloud BigQuery Reservation
 .. |pypi| image:: https://img.shields.io/pypi/v/google-cloud-bigquery-reservation.svg
    :target: https://pypi.org/project/google-cloud-bigquery-reservation/
 .. |versions| image:: https://img.shields.io/pypi/pyversions/google-cloud-bigquery-reservation.svg
-   :target: https://pypi.org/project/google-cloud-bigqyery-reservation/
-.. _BigQuery Reservation API: https:///cloud.google.com/bigquery/docs/reference/reservations
+   :target: https://pypi.org/project/google-cloud-bigquery-reservation/
+.. _BigQuery Reservation API: https:///cloud.google.com/bigquery/docs/reference/reservations/rpc
 .. _Client Library Documentation: https://googleapis.dev/python/bigqueryreservation/latest
 .. _Product Documentation:  https:///cloud.google.com/bigquery/docs/reference/reservations
 
@@ -25,12 +25,12 @@ In order to use this library, you first need to go through the following steps:
 
 1. `Select or create a Cloud Platform project.`_
 2. `Enable billing for your project.`_
-3. `Enable the Cloud BigQuery Reservation API.`_
+3. `Enable the BigQuery Reservation API.`_
 4. `Setup Authentication.`_
 
 .. _Select or create a Cloud Platform project.: https://console.cloud.google.com/project
 .. _Enable billing for your project.: https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project
-.. _Enable the Cloud BigQuery Reservation API.:  https:///cloud.google.com/bigquery/docs/reference/reservations
+.. _Enable the BigQuery Reservation API.:  https://console.cloud.google.com/apis/library/bigqueryreservation.googleapis.com
 .. _Setup Authentication.: https://googleapis.dev/python/google-api-core/latest/auth.html
 
 Installation
