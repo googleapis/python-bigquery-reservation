@@ -78,5 +78,5 @@ Next Steps
 -  View this `repository’s main README`_ to see the full list of Cloud
    APIs that we cover.
 
-.. _BigQuery Reservation API Product documentation:  https://cloud.google.com/bigquery/docs/reference/reservations
+.. _BigQuery Reservation API Product documentation:  https://cloud.google.com/bigquery/docs/reference/reservations/rpc
 .. _repository’s main README: https://github.com/googleapis/google-cloud-python/blob/master/README.rst
