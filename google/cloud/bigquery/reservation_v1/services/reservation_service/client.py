@@ -163,6 +163,22 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
+    def reservation_path(project: str, location: str, reservation: str) -> str:
+        """Return a fully-qualified reservation string."""
+        return "projects/{project}/locations/{location}/reservations/{reservation}".format(
+            project=project, location=location, reservation=reservation
+        )
+
+    @staticmethod
+    def parse_reservation_path(path: str) -> Dict[str, str]:
+        """Parse a reservation path into its component segments."""
+        m = re.match(
+            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)$",
+            path,
+        )
+        return m.groupdict() if m else {}
+
+    @staticmethod
     def capacity_commitment_path(
         project: str, location: str, capacity_commitment: str
     ) -> str:
@@ -197,22 +213,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         """Parse a assignment path into its component segments."""
         m = re.match(
             r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)/assignments/(?P<assignment>.+?)$",
-            path,
-        )
-        return m.groupdict() if m else {}
-
-    @staticmethod
-    def reservation_path(project: str, location: str, reservation: str) -> str:
-        """Return a fully-qualified reservation string."""
-        return "projects/{project}/locations/{location}/reservations/{reservation}".format(
-            project=project, location=location, reservation=reservation
-        )
-
-    @staticmethod
-    def parse_reservation_path(path: str) -> Dict[str, str]:
-        """Parse a reservation path into its component segments."""
-        m = re.match(
-            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)$",
             path,
         )
         return m.groupdict() if m else {}
