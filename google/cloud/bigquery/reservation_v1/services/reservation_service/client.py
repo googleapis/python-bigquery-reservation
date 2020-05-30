@@ -147,22 +147,17 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
     from_service_account_json = from_service_account_file
 
     @staticmethod
-    def assignment_path(
-        project: str, location: str, reservation: str, assignment: str
-    ) -> str:
-        """Return a fully-qualified assignment string."""
-        return "projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}".format(
-            project=project,
-            location=location,
-            reservation=reservation,
-            assignment=assignment,
+    def bi_reservation_path(project: str, location: str) -> str:
+        """Return a fully-qualified bi_reservation string."""
+        return "projects/{project}/locations/{location}/bireservation".format(
+            project=project, location=location
         )
 
     @staticmethod
-    def parse_assignment_path(path: str) -> Dict[str, str]:
-        """Parse a assignment path into its component segments."""
+    def parse_bi_reservation_path(path: str) -> Dict[str, str]:
+        """Parse a bi_reservation path into its component segments."""
         m = re.match(
-            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)/assignments/(?P<assignment>.+?)$",
+            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/bireservation$",
             path,
         )
         return m.groupdict() if m else {}
@@ -184,22 +179,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def bi_reservation_path(project: str, location: str) -> str:
-        """Return a fully-qualified bi_reservation string."""
-        return "projects/{project}/locations/{location}/bireservation".format(
-            project=project, location=location
-        )
-
-    @staticmethod
-    def parse_bi_reservation_path(path: str) -> Dict[str, str]:
-        """Parse a bi_reservation path into its component segments."""
-        m = re.match(
-            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/bireservation$",
-            path,
-        )
-        return m.groupdict() if m else {}
-
-    @staticmethod
     def capacity_commitment_path(
         project: str, location: str, capacity_commitment: str
     ) -> str:
@@ -213,6 +192,27 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         """Parse a capacity_commitment path into its component segments."""
         m = re.match(
             r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/capacityCommitments/(?P<capacity_commitment>.+?)$",
+            path,
+        )
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def assignment_path(
+        project: str, location: str, reservation: str, assignment: str
+    ) -> str:
+        """Return a fully-qualified assignment string."""
+        return "projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}".format(
+            project=project,
+            location=location,
+            reservation=reservation,
+            assignment=assignment,
+        )
+
+    @staticmethod
+    def parse_assignment_path(path: str) -> Dict[str, str]:
+        """Parse a assignment path into its component segments."""
+        m = re.match(
+            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)/assignments/(?P<assignment>.+?)$",
             path,
         )
         return m.groupdict() if m else {}
