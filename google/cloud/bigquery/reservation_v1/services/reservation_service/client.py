@@ -147,35 +147,17 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
     from_service_account_json = from_service_account_file
 
     @staticmethod
-    def reservation_path(project: str, location: str, reservation: str) -> str:
-        """Return a fully-qualified reservation string."""
-        return "projects/{project}/locations/{location}/reservations/{reservation}".format(
-            project=project, location=location, reservation=reservation
+    def bi_reservation_path(project: str, location: str) -> str:
+        """Return a fully-qualified bi_reservation string."""
+        return "projects/{project}/locations/{location}/bireservation".format(
+            project=project, location=location
         )
 
     @staticmethod
-    def parse_reservation_path(path: str) -> Dict[str, str]:
-        """Parse a reservation path into its component segments."""
+    def parse_bi_reservation_path(path: str) -> Dict[str, str]:
+        """Parse a bi_reservation path into its component segments."""
         m = re.match(
-            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)$",
-            path,
-        )
-        return m.groupdict() if m else {}
-
-    @staticmethod
-    def capacity_commitment_path(
-        project: str, location: str, capacity_commitment: str
-    ) -> str:
-        """Return a fully-qualified capacity_commitment string."""
-        return "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
-            project=project, location=location, capacity_commitment=capacity_commitment
-        )
-
-    @staticmethod
-    def parse_capacity_commitment_path(path: str) -> Dict[str, str]:
-        """Parse a capacity_commitment path into its component segments."""
-        m = re.match(
-            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/capacityCommitments/(?P<capacity_commitment>.+?)$",
+            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/bireservation$",
             path,
         )
         return m.groupdict() if m else {}
@@ -202,17 +184,35 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def bi_reservation_path(project: str, location: str) -> str:
-        """Return a fully-qualified bi_reservation string."""
-        return "projects/{project}/locations/{location}/bireservation".format(
-            project=project, location=location
+    def capacity_commitment_path(
+        project: str, location: str, capacity_commitment: str
+    ) -> str:
+        """Return a fully-qualified capacity_commitment string."""
+        return "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
+            project=project, location=location, capacity_commitment=capacity_commitment
         )
 
     @staticmethod
-    def parse_bi_reservation_path(path: str) -> Dict[str, str]:
-        """Parse a bi_reservation path into its component segments."""
+    def parse_capacity_commitment_path(path: str) -> Dict[str, str]:
+        """Parse a capacity_commitment path into its component segments."""
         m = re.match(
-            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/bireservation$",
+            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/capacityCommitments/(?P<capacity_commitment>.+?)$",
+            path,
+        )
+        return m.groupdict() if m else {}
+
+    @staticmethod
+    def reservation_path(project: str, location: str, reservation: str) -> str:
+        """Return a fully-qualified reservation string."""
+        return "projects/{project}/locations/{location}/reservations/{reservation}".format(
+            project=project, location=location, reservation=reservation
+        )
+
+    @staticmethod
+    def parse_reservation_path(path: str) -> Dict[str, str]:
+        """Parse a reservation path into its component segments."""
+        m = re.match(
+            r"^projects/(?P<project>.+?)/locations/(?P<location>.+?)/reservations/(?P<reservation>.+?)$",
             path,
         )
         return m.groupdict() if m else {}
