@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-bigquery-reservation.git",
-        "sha": "4210d3c3e198d5c2220b9590e77df4f5712109b6"
+        "sha": "952854761ae35fa12f717123739ff788357498ec"
       }
     },
     {
