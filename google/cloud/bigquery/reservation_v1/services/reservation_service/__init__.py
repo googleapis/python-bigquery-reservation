@@ -16,5 +16,6 @@
 #
 
 from .client import ReservationServiceClient
+from .async_client import ReservationServiceAsyncClient
 
-__all__ = ("ReservationServiceClient",)
+__all__ = ("ReservationServiceClient", "ReservationServiceAsyncClient")
