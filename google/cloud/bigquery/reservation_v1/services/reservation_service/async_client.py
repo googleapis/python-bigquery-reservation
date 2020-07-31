@@ -69,11 +69,11 @@ class ReservationServiceAsyncClient:
 
     bi_reservation_path = staticmethod(ReservationServiceClient.bi_reservation_path)
 
+    reservation_path = staticmethod(ReservationServiceClient.reservation_path)
+
     capacity_commitment_path = staticmethod(
         ReservationServiceClient.capacity_commitment_path
     )
-
-    reservation_path = staticmethod(ReservationServiceClient.reservation_path)
 
     from_service_account_file = ReservationServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
