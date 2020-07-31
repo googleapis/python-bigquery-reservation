@@ -65,9 +65,9 @@ class ReservationServiceAsyncClient:
     DEFAULT_ENDPOINT = ReservationServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = ReservationServiceClient.DEFAULT_MTLS_ENDPOINT
 
-    reservation_path = staticmethod(ReservationServiceClient.reservation_path)
-
     bi_reservation_path = staticmethod(ReservationServiceClient.bi_reservation_path)
+
+    reservation_path = staticmethod(ReservationServiceClient.reservation_path)
 
     assignment_path = staticmethod(ReservationServiceClient.assignment_path)
 
@@ -232,9 +232,8 @@ class ReservationServiceAsyncClient:
                 The request object. The request for
                 [ReservationService.ListReservations][google.cloud.bigquery.reservation.v1.ReservationService.ListReservations].
             parent (:class:`str`):
-                Required. The parent resource name
-                containing project and location, e.g.:
-                "projects/myproject/locations/US".
+                Required. The parent resource name containing project
+                and location, e.g.: ``projects/myproject/locations/US``
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -532,9 +531,8 @@ class ReservationServiceAsyncClient:
                 The request object. The request for
                 [ReservationService.CreateCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.CreateCapacityCommitment].
             parent (:class:`str`):
-                Required. Resource name of the parent
-                reservation. E.g.,
-                projects/myproject/locations/US
+                Required. Resource name of the parent reservation. E.g.,
+                ``projects/myproject/locations/US``
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -625,9 +623,8 @@ class ReservationServiceAsyncClient:
                 The request object. The request for
                 [ReservationService.ListCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.ListCapacityCommitments].
             parent (:class:`str`):
-                Required. Resource name of the parent
-                reservation. E.g.,
-                projects/myproject/locations/US
+                Required. Resource name of the parent reservation. E.g.,
+                ``projects/myproject/locations/US``
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -706,9 +703,9 @@ class ReservationServiceAsyncClient:
                 The request object. The request for
                 [ReservationService.GetCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.GetCapacityCommitment].
             name (:class:`str`):
-                Required. Resource name of the
-                capacity commitment to retrieve. E.g.,
-                projects/myproject/locations/US/capacityCommitments/123
+                Required. Resource name of the capacity commitment to
+                retrieve. E.g.,
+                ``projects/myproject/locations/US/capacityCommitments/123``
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -792,9 +789,9 @@ class ReservationServiceAsyncClient:
                 The request object. The request for
                 [ReservationService.DeleteCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.DeleteCapacityCommitment].
             name (:class:`str`):
-                Required. Resource name of the
-                capacity commitment to delete. E.g.,
-                projects/myproject/locations/US/capacityCommitments/123
+                Required. Resource name of the capacity commitment to
+                delete. E.g.,
+                ``projects/myproject/locations/US/capacityCommitments/123``
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -966,7 +963,7 @@ class ReservationServiceAsyncClient:
                 [ReservationService.SplitCapacityCommitment][google.cloud.bigquery.reservation.v1.ReservationService.SplitCapacityCommitment].
             name (:class:`str`):
                 Required. The resource name e.g.,:
-                projects/myproject/locations/US/capacityCommitments/123
+                ``projects/myproject/locations/US/capacityCommitments/123``
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1054,9 +1051,8 @@ class ReservationServiceAsyncClient:
                 The request object. The request for
                 [ReservationService.MergeCapacityCommitments][google.cloud.bigquery.reservation.v1.ReservationService.MergeCapacityCommitments].
             parent (:class:`str`):
-                Parent resource that identifies admin
-                project and location e.g.,
-                projects/myproject/locations/us
+                Parent resource that identifies admin project and
+                location e.g., ``projects/myproject/locations/us``
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1065,6 +1061,9 @@ class ReservationServiceAsyncClient:
                 These capacity commitments must exist
                 under admin project and location
                 specified in the parent.
+                ID is the last portion of capacity
+                commitment name e.g., 'abc' for
+                projects/myproject/locations/US/capacityCommitments/abc
                 This corresponds to the ``capacity_commitment_ids`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -1474,10 +1473,9 @@ class ReservationServiceAsyncClient:
                 Note: "bigquery.reservationAssignments.search"
                 permission is required on the related assignee.
             parent (:class:`str`):
-                Required. The resource name of the
-                admin project(containing project and
-                location), e.g.:
-                "projects/myproject/locations/US".
+                Required. The resource name of the admin
+                project(containing project and location), e.g.:
+                ``projects/myproject/locations/US``.
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.

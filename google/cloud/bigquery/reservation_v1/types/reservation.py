@@ -197,9 +197,8 @@ class ListReservationsRequest(proto.Message):
 
     Attributes:
         parent (str):
-            Required. The parent resource name containing
-            project and location, e.g.:
-            "projects/myproject/locations/US".
+            Required. The parent resource name containing project and
+            location, e.g.: ``projects/myproject/locations/US``
         page_size (int):
             The maximum number of items to return per
             page.
@@ -288,9 +287,8 @@ class CreateCapacityCommitmentRequest(proto.Message):
 
     Attributes:
         parent (str):
-            Required. Resource name of the parent
-            reservation. E.g.,
-            projects/myproject/locations/US
+            Required. Resource name of the parent reservation. E.g.,
+            ``projects/myproject/locations/US``
         capacity_commitment (~.gcbr_reservation.CapacityCommitment):
             Content of the capacity commitment to create.
         enforce_single_admin_project_per_org (bool):
@@ -313,9 +311,8 @@ class ListCapacityCommitmentsRequest(proto.Message):
 
     Attributes:
         parent (str):
-            Required. Resource name of the parent
-            reservation. E.g.,
-            projects/myproject/locations/US
+            Required. Resource name of the parent reservation. E.g.,
+            ``projects/myproject/locations/US``
         page_size (int):
             The maximum number of items to return.
         page_token (str):
@@ -361,9 +358,9 @@ class GetCapacityCommitmentRequest(proto.Message):
 
     Attributes:
         name (str):
-            Required. Resource name of the capacity
-            commitment to retrieve. E.g.,
-            projects/myproject/locations/US/capacityCommitments/123
+            Required. Resource name of the capacity commitment to
+            retrieve. E.g.,
+            ``projects/myproject/locations/US/capacityCommitments/123``
     """
 
     name = proto.Field(proto.STRING, number=1)
@@ -375,9 +372,9 @@ class DeleteCapacityCommitmentRequest(proto.Message):
 
     Attributes:
         name (str):
-            Required. Resource name of the capacity
-            commitment to delete. E.g.,
-            projects/myproject/locations/US/capacityCommitments/123
+            Required. Resource name of the capacity commitment to
+            delete. E.g.,
+            ``projects/myproject/locations/US/capacityCommitments/123``
     """
 
     name = proto.Field(proto.STRING, number=1)
@@ -409,7 +406,7 @@ class SplitCapacityCommitmentRequest(proto.Message):
     Attributes:
         name (str):
             Required. The resource name e.g.,:
-            projects/myproject/locations/US/capacityCommitments/123
+            ``projects/myproject/locations/US/capacityCommitments/123``
         slot_count (int):
             Number of slots in the capacity commitment
             after the split.
@@ -443,14 +440,16 @@ class MergeCapacityCommitmentsRequest(proto.Message):
 
     Attributes:
         parent (str):
-            Parent resource that identifies admin project
-            and location e.g.,
-            projects/myproject/locations/us
+            Parent resource that identifies admin project and location
+            e.g., ``projects/myproject/locations/us``
         capacity_commitment_ids (Sequence[str]):
             Ids of capacity commitments to merge.
             These capacity commitments must exist under
             admin project and location specified in the
             parent.
+            ID is the last portion of capacity commitment
+            name e.g., 'abc' for
+            projects/myproject/locations/US/capacityCommitments/abc
     """
 
     parent = proto.Field(proto.STRING, number=1)
@@ -594,9 +593,9 @@ class SearchAssignmentsRequest(proto.Message):
 
     Attributes:
         parent (str):
-            Required. The resource name of the admin
-            project(containing project and location), e.g.:
-            "projects/myproject/locations/US".
+            Required. The resource name of the admin project(containing
+            project and location), e.g.:
+            ``projects/myproject/locations/US``.
         query (str):
             Please specify resource name as assignee in the query.
 
