@@ -15,114 +15,66 @@
 # limitations under the License.
 #
 
-from google.cloud.bigquery.reservation_v1.services.reservation_service.async_client import (
-    ReservationServiceAsyncClient,
-)
-from google.cloud.bigquery.reservation_v1.services.reservation_service.client import (
-    ReservationServiceClient,
-)
+from google.cloud.bigquery.reservation_v1.services.reservation_service.async_client import ReservationServiceAsyncClient
+from google.cloud.bigquery.reservation_v1.services.reservation_service.client import ReservationServiceClient
 from google.cloud.bigquery.reservation_v1.types.reservation import Assignment
 from google.cloud.bigquery.reservation_v1.types.reservation import BiReservation
 from google.cloud.bigquery.reservation_v1.types.reservation import CapacityCommitment
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    CreateAssignmentRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    CreateCapacityCommitmentRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    CreateReservationRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    DeleteAssignmentRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    DeleteCapacityCommitmentRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    DeleteReservationRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    GetBiReservationRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    GetCapacityCommitmentRequest,
-)
+from google.cloud.bigquery.reservation_v1.types.reservation import CreateAssignmentRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import CreateCapacityCommitmentRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import CreateReservationRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import DeleteAssignmentRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import DeleteCapacityCommitmentRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import DeleteReservationRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import GetBiReservationRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import GetCapacityCommitmentRequest
 from google.cloud.bigquery.reservation_v1.types.reservation import GetReservationRequest
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    ListAssignmentsRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    ListAssignmentsResponse,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    ListCapacityCommitmentsRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    ListCapacityCommitmentsResponse,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    ListReservationsRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    ListReservationsResponse,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    MergeCapacityCommitmentsRequest,
-)
+from google.cloud.bigquery.reservation_v1.types.reservation import ListAssignmentsRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import ListAssignmentsResponse
+from google.cloud.bigquery.reservation_v1.types.reservation import ListCapacityCommitmentsRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import ListCapacityCommitmentsResponse
+from google.cloud.bigquery.reservation_v1.types.reservation import ListReservationsRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import ListReservationsResponse
+from google.cloud.bigquery.reservation_v1.types.reservation import MergeCapacityCommitmentsRequest
 from google.cloud.bigquery.reservation_v1.types.reservation import MoveAssignmentRequest
 from google.cloud.bigquery.reservation_v1.types.reservation import Reservation
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    SearchAssignmentsRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    SearchAssignmentsResponse,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    SplitCapacityCommitmentRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    SplitCapacityCommitmentResponse,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    UpdateBiReservationRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    UpdateCapacityCommitmentRequest,
-)
-from google.cloud.bigquery.reservation_v1.types.reservation import (
-    UpdateReservationRequest,
-)
+from google.cloud.bigquery.reservation_v1.types.reservation import SearchAssignmentsRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import SearchAssignmentsResponse
+from google.cloud.bigquery.reservation_v1.types.reservation import SplitCapacityCommitmentRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import SplitCapacityCommitmentResponse
+from google.cloud.bigquery.reservation_v1.types.reservation import UpdateBiReservationRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import UpdateCapacityCommitmentRequest
+from google.cloud.bigquery.reservation_v1.types.reservation import UpdateReservationRequest
 
 __all__ = (
-    "Assignment",
-    "BiReservation",
-    "CapacityCommitment",
-    "CreateAssignmentRequest",
-    "CreateCapacityCommitmentRequest",
-    "CreateReservationRequest",
-    "DeleteAssignmentRequest",
-    "DeleteCapacityCommitmentRequest",
-    "DeleteReservationRequest",
-    "GetBiReservationRequest",
-    "GetCapacityCommitmentRequest",
-    "GetReservationRequest",
-    "ListAssignmentsRequest",
-    "ListAssignmentsResponse",
-    "ListCapacityCommitmentsRequest",
-    "ListCapacityCommitmentsResponse",
-    "ListReservationsRequest",
-    "ListReservationsResponse",
-    "MergeCapacityCommitmentsRequest",
-    "MoveAssignmentRequest",
-    "Reservation",
-    "ReservationServiceAsyncClient",
-    "ReservationServiceClient",
-    "SearchAssignmentsRequest",
-    "SearchAssignmentsResponse",
-    "SplitCapacityCommitmentRequest",
-    "SplitCapacityCommitmentResponse",
-    "UpdateBiReservationRequest",
-    "UpdateCapacityCommitmentRequest",
-    "UpdateReservationRequest",
+    'Assignment',
+    'BiReservation',
+    'CapacityCommitment',
+    'CreateAssignmentRequest',
+    'CreateCapacityCommitmentRequest',
+    'CreateReservationRequest',
+    'DeleteAssignmentRequest',
+    'DeleteCapacityCommitmentRequest',
+    'DeleteReservationRequest',
+    'GetBiReservationRequest',
+    'GetCapacityCommitmentRequest',
+    'GetReservationRequest',
+    'ListAssignmentsRequest',
+    'ListAssignmentsResponse',
+    'ListCapacityCommitmentsRequest',
+    'ListCapacityCommitmentsResponse',
+    'ListReservationsRequest',
+    'ListReservationsResponse',
+    'MergeCapacityCommitmentsRequest',
+    'MoveAssignmentRequest',
+    'Reservation',
+    'ReservationServiceAsyncClient',
+    'ReservationServiceClient',
+    'SearchAssignmentsRequest',
+    'SearchAssignmentsResponse',
+    'SplitCapacityCommitmentRequest',
+    'SplitCapacityCommitmentResponse',
+    'UpdateBiReservationRequest',
+    'UpdateCapacityCommitmentRequest',
+    'UpdateReservationRequest',
 )
