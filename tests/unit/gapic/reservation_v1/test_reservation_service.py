@@ -5525,53 +5525,28 @@ def test_reservation_service_grpc_asyncio_transport_channel_mtls_with_adc(
         assert transport.grpc_channel == mock_grpc_channel
 
 
-def test_capacity_commitment_path():
+def test_reservation_path():
     project = "squid"
     location = "clam"
-    capacity_commitment = "whelk"
+    reservation = "whelk"
 
-    expected = "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
-        project=project, location=location, capacity_commitment=capacity_commitment,
+    expected = "projects/{project}/locations/{location}/reservations/{reservation}".format(
+        project=project, location=location, reservation=reservation,
     )
-    actual = ReservationServiceClient.capacity_commitment_path(
-        project, location, capacity_commitment
-    )
+    actual = ReservationServiceClient.reservation_path(project, location, reservation)
     assert expected == actual
 
 
-def test_parse_capacity_commitment_path():
+def test_parse_reservation_path():
     expected = {
         "project": "octopus",
         "location": "oyster",
-        "capacity_commitment": "nudibranch",
+        "reservation": "nudibranch",
     }
-    path = ReservationServiceClient.capacity_commitment_path(**expected)
+    path = ReservationServiceClient.reservation_path(**expected)
 
     # Check that the path construction is reversible.
-    actual = ReservationServiceClient.parse_capacity_commitment_path(path)
-    assert expected == actual
-
-
-def test_bi_reservation_path():
-    project = "squid"
-    location = "clam"
-
-    expected = "projects/{project}/locations/{location}/bireservation".format(
-        project=project, location=location,
-    )
-    actual = ReservationServiceClient.bi_reservation_path(project, location)
-    assert expected == actual
-
-
-def test_parse_bi_reservation_path():
-    expected = {
-        "project": "whelk",
-        "location": "octopus",
-    }
-    path = ReservationServiceClient.bi_reservation_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ReservationServiceClient.parse_bi_reservation_path(path)
+    actual = ReservationServiceClient.parse_reservation_path(path)
     assert expected == actual
 
 
@@ -5607,26 +5582,51 @@ def test_parse_assignment_path():
     assert expected == actual
 
 
-def test_reservation_path():
+def test_bi_reservation_path():
     project = "squid"
     location = "clam"
-    reservation = "whelk"
 
-    expected = "projects/{project}/locations/{location}/reservations/{reservation}".format(
-        project=project, location=location, reservation=reservation,
+    expected = "projects/{project}/locations/{location}/bireservation".format(
+        project=project, location=location,
     )
-    actual = ReservationServiceClient.reservation_path(project, location, reservation)
+    actual = ReservationServiceClient.bi_reservation_path(project, location)
     assert expected == actual
 
 
-def test_parse_reservation_path():
+def test_parse_bi_reservation_path():
+    expected = {
+        "project": "whelk",
+        "location": "octopus",
+    }
+    path = ReservationServiceClient.bi_reservation_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReservationServiceClient.parse_bi_reservation_path(path)
+    assert expected == actual
+
+
+def test_capacity_commitment_path():
+    project = "squid"
+    location = "clam"
+    capacity_commitment = "whelk"
+
+    expected = "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
+        project=project, location=location, capacity_commitment=capacity_commitment,
+    )
+    actual = ReservationServiceClient.capacity_commitment_path(
+        project, location, capacity_commitment
+    )
+    assert expected == actual
+
+
+def test_parse_capacity_commitment_path():
     expected = {
         "project": "octopus",
         "location": "oyster",
-        "reservation": "nudibranch",
+        "capacity_commitment": "nudibranch",
     }
-    path = ReservationServiceClient.reservation_path(**expected)
+    path = ReservationServiceClient.capacity_commitment_path(**expected)
 
     # Check that the path construction is reversible.
-    actual = ReservationServiceClient.parse_reservation_path(path)
+    actual = ReservationServiceClient.parse_capacity_commitment_path(path)
     assert expected == actual
