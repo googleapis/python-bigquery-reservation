@@ -208,7 +208,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         # have one.
         if not hasattr(self, "_grpc_channel"):
             self._grpc_channel = self.create_channel(
-                self._host, credentials=self._credentials
+                self._host, credentials=self._credentials,
             )
 
         # Return the channel from cache.
@@ -216,7 +216,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def create_reservation(
-        self
+        self,
     ) -> Callable[
         [gcbr_reservation.CreateReservationRequest],
         Awaitable[gcbr_reservation.Reservation],
@@ -245,7 +245,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def list_reservations(
-        self
+        self,
     ) -> Callable[
         [reservation.ListReservationsRequest],
         Awaitable[reservation.ListReservationsResponse],
@@ -275,7 +275,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def get_reservation(
-        self
+        self,
     ) -> Callable[
         [reservation.GetReservationRequest], Awaitable[reservation.Reservation]
     ]:
@@ -303,7 +303,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def delete_reservation(
-        self
+        self,
     ) -> Callable[[reservation.DeleteReservationRequest], Awaitable[empty.Empty]]:
         r"""Return a callable for the delete reservation method over gRPC.
 
@@ -331,7 +331,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def update_reservation(
-        self
+        self,
     ) -> Callable[
         [gcbr_reservation.UpdateReservationRequest],
         Awaitable[gcbr_reservation.Reservation],
@@ -360,7 +360,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def create_capacity_commitment(
-        self
+        self,
     ) -> Callable[
         [reservation.CreateCapacityCommitmentRequest],
         Awaitable[reservation.CapacityCommitment],
@@ -389,7 +389,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def list_capacity_commitments(
-        self
+        self,
     ) -> Callable[
         [reservation.ListCapacityCommitmentsRequest],
         Awaitable[reservation.ListCapacityCommitmentsResponse],
@@ -419,7 +419,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def get_capacity_commitment(
-        self
+        self,
     ) -> Callable[
         [reservation.GetCapacityCommitmentRequest],
         Awaitable[reservation.CapacityCommitment],
@@ -448,7 +448,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def delete_capacity_commitment(
-        self
+        self,
     ) -> Callable[
         [reservation.DeleteCapacityCommitmentRequest], Awaitable[empty.Empty]
     ]:
@@ -478,7 +478,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def update_capacity_commitment(
-        self
+        self,
     ) -> Callable[
         [reservation.UpdateCapacityCommitmentRequest],
         Awaitable[reservation.CapacityCommitment],
@@ -514,7 +514,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def split_capacity_commitment(
-        self
+        self,
     ) -> Callable[
         [reservation.SplitCapacityCommitmentRequest],
         Awaitable[reservation.SplitCapacityCommitmentResponse],
@@ -551,7 +551,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def merge_capacity_commitments(
-        self
+        self,
     ) -> Callable[
         [reservation.MergeCapacityCommitmentsRequest],
         Awaitable[reservation.CapacityCommitment],
@@ -589,7 +589,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def create_assignment(
-        self
+        self,
     ) -> Callable[
         [reservation.CreateAssignmentRequest], Awaitable[reservation.Assignment]
     ]:
@@ -648,7 +648,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def list_assignments(
-        self
+        self,
     ) -> Callable[
         [reservation.ListAssignmentsRequest],
         Awaitable[reservation.ListAssignmentsResponse],
@@ -698,7 +698,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def delete_assignment(
-        self
+        self,
     ) -> Callable[[reservation.DeleteAssignmentRequest], Awaitable[empty.Empty]]:
         r"""Return a callable for the delete assignment method over gRPC.
 
@@ -739,7 +739,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def search_assignments(
-        self
+        self,
     ) -> Callable[
         [reservation.SearchAssignmentsRequest],
         Awaitable[reservation.SearchAssignmentsResponse],
@@ -792,7 +792,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def move_assignment(
-        self
+        self,
     ) -> Callable[
         [reservation.MoveAssignmentRequest], Awaitable[reservation.Assignment]
     ]:
@@ -824,7 +824,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def get_bi_reservation(
-        self
+        self,
     ) -> Callable[
         [reservation.GetBiReservationRequest], Awaitable[reservation.BiReservation]
     ]:
@@ -852,7 +852,7 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
 
     @property
     def update_bi_reservation(
-        self
+        self,
     ) -> Callable[
         [reservation.UpdateBiReservationRequest], Awaitable[reservation.BiReservation]
     ]:

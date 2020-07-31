@@ -57,7 +57,7 @@ class ReservationServiceClientMeta(type):
     _transport_registry["grpc_asyncio"] = ReservationServiceGrpcAsyncIOTransport
 
     def get_transport_class(
-        cls, label: str = None
+        cls, label: str = None,
     ) -> Type[ReservationServiceTransport]:
         """Return an appropriate transport class.
 
@@ -153,7 +153,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
     @staticmethod
     def assignment_path(
-        project: str, location: str, reservation: str, assignment: str
+        project: str, location: str, reservation: str, assignment: str,
     ) -> str:
         """Return a fully-qualified assignment string."""
         return "projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}".format(
@@ -173,10 +173,10 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def bi_reservation_path(project: str, location: str) -> str:
+    def bi_reservation_path(project: str, location: str,) -> str:
         """Return a fully-qualified bi_reservation string."""
         return "projects/{project}/locations/{location}/bireservation".format(
-            project=project, location=location
+            project=project, location=location,
         )
 
     @staticmethod
@@ -190,11 +190,11 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
     @staticmethod
     def capacity_commitment_path(
-        project: str, location: str, capacity_commitment: str
+        project: str, location: str, capacity_commitment: str,
     ) -> str:
         """Return a fully-qualified capacity_commitment string."""
         return "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
-            project=project, location=location, capacity_commitment=capacity_commitment
+            project=project, location=location, capacity_commitment=capacity_commitment,
         )
 
     @staticmethod
@@ -207,10 +207,10 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         return m.groupdict() if m else {}
 
     @staticmethod
-    def reservation_path(project: str, location: str, reservation: str) -> str:
+    def reservation_path(project: str, location: str, reservation: str,) -> str:
         """Return a fully-qualified reservation string."""
         return "projects/{project}/locations/{location}/reservations/{reservation}".format(
-            project=project, location=location, reservation=reservation
+            project=project, location=location, reservation=reservation,
         )
 
     @staticmethod
@@ -400,7 +400,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -478,12 +478,12 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListReservationsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -558,7 +558,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -628,7 +628,9 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     def update_reservation(
         self,
@@ -708,7 +710,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -805,7 +807,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -885,12 +887,12 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListCapacityCommitmentsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -977,7 +979,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1049,7 +1051,9 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     def update_capacity_commitment(
         self,
@@ -1151,7 +1155,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1243,7 +1247,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1351,7 +1355,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1467,7 +1471,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1569,12 +1573,12 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.ListAssignmentsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -1659,7 +1663,9 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     def search_assignments(
         self,
@@ -1775,12 +1781,12 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__iter__` convenience method.
         response = pagers.SearchAssignmentsPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -1874,7 +1880,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1946,7 +1952,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -2034,7 +2040,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         )
 
         # Send the request.
-        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -2043,8 +2049,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 try:
     _client_info = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
-            "google-cloud-bigquery-reservation"
-        ).version
+            "google-cloud-bigquery-reservation",
+        ).version,
     )
 except pkg_resources.DistributionNotFound:
     _client_info = gapic_v1.client_info.ClientInfo()
