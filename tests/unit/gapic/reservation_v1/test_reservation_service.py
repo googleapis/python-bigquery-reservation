@@ -5546,6 +5546,26 @@ def test_parse_reservation_path():
     assert expected == actual
 
 
+def test_bi_reservation_path():
+    project = "squid"
+    location = "clam"
+
+    expected = "projects/{project}/locations/{location}/bireservation".format(
+        project=project, location=location
+    )
+    actual = ReservationServiceClient.bi_reservation_path(project, location)
+    assert expected == actual
+
+
+def test_parse_bi_reservation_path():
+    expected = {"project": "whelk", "location": "octopus"}
+    path = ReservationServiceClient.bi_reservation_path(**expected)
+
+    # Check that the path construction is reversible.
+    actual = ReservationServiceClient.parse_bi_reservation_path(path)
+    assert expected == actual
+
+
 def test_assignment_path():
     project = "squid"
     location = "clam"
@@ -5575,24 +5595,4 @@ def test_parse_assignment_path():
 
     # Check that the path construction is reversible.
     actual = ReservationServiceClient.parse_assignment_path(path)
-    assert expected == actual
-
-
-def test_bi_reservation_path():
-    project = "squid"
-    location = "clam"
-
-    expected = "projects/{project}/locations/{location}/bireservation".format(
-        project=project, location=location
-    )
-    actual = ReservationServiceClient.bi_reservation_path(project, location)
-    assert expected == actual
-
-
-def test_parse_bi_reservation_path():
-    expected = {"project": "whelk", "location": "octopus"}
-    path = ReservationServiceClient.bi_reservation_path(**expected)
-
-    # Check that the path construction is reversible.
-    actual = ReservationServiceClient.parse_bi_reservation_path(path)
     assert expected == actual
