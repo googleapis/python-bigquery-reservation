@@ -5498,30 +5498,35 @@ def test_reservation_service_grpc_asyncio_transport_channel_mtls_with_adc(
         assert transport.grpc_channel == mock_grpc_channel
 
 
-def test_capacity_commitment_path():
+def test_assignment_path():
     project = "squid"
     location = "clam"
-    capacity_commitment = "whelk"
+    reservation = "whelk"
+    assignment = "octopus"
 
-    expected = "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
-        project=project, location=location, capacity_commitment=capacity_commitment
+    expected = "projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}".format(
+        project=project,
+        location=location,
+        reservation=reservation,
+        assignment=assignment,
     )
-    actual = ReservationServiceClient.capacity_commitment_path(
-        project, location, capacity_commitment
+    actual = ReservationServiceClient.assignment_path(
+        project, location, reservation, assignment
     )
     assert expected == actual
 
 
-def test_parse_capacity_commitment_path():
+def test_parse_assignment_path():
     expected = {
-        "project": "octopus",
-        "location": "oyster",
-        "capacity_commitment": "nudibranch",
+        "project": "oyster",
+        "location": "nudibranch",
+        "reservation": "cuttlefish",
+        "assignment": "mussel",
     }
-    path = ReservationServiceClient.capacity_commitment_path(**expected)
+    path = ReservationServiceClient.assignment_path(**expected)
 
     # Check that the path construction is reversible.
-    actual = ReservationServiceClient.parse_capacity_commitment_path(path)
+    actual = ReservationServiceClient.parse_assignment_path(path)
     assert expected == actual
 
 
@@ -5566,33 +5571,28 @@ def test_parse_reservation_path():
     assert expected == actual
 
 
-def test_assignment_path():
+def test_capacity_commitment_path():
     project = "squid"
     location = "clam"
-    reservation = "whelk"
-    assignment = "octopus"
+    capacity_commitment = "whelk"
 
-    expected = "projects/{project}/locations/{location}/reservations/{reservation}/assignments/{assignment}".format(
-        project=project,
-        location=location,
-        reservation=reservation,
-        assignment=assignment,
+    expected = "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
+        project=project, location=location, capacity_commitment=capacity_commitment
     )
-    actual = ReservationServiceClient.assignment_path(
-        project, location, reservation, assignment
+    actual = ReservationServiceClient.capacity_commitment_path(
+        project, location, capacity_commitment
     )
     assert expected == actual
 
 
-def test_parse_assignment_path():
+def test_parse_capacity_commitment_path():
     expected = {
-        "project": "oyster",
-        "location": "nudibranch",
-        "reservation": "cuttlefish",
-        "assignment": "mussel",
+        "project": "octopus",
+        "location": "oyster",
+        "capacity_commitment": "nudibranch",
     }
-    path = ReservationServiceClient.assignment_path(**expected)
+    path = ReservationServiceClient.capacity_commitment_path(**expected)
 
     # Check that the path construction is reversible.
-    actual = ReservationServiceClient.parse_assignment_path(path)
+    actual = ReservationServiceClient.parse_capacity_commitment_path(path)
     assert expected == actual
