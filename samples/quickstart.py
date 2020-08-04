@@ -17,6 +17,7 @@ from google.cloud.bigquery import reservation_v1
 
 # [START bigqueryreservation_quickstart]
 
+
 def main(project_id="your-project-id", location="US"):
     # Constructs the client for interacting with the service.
     client = reservation_v1.ReservationServiceClient()
