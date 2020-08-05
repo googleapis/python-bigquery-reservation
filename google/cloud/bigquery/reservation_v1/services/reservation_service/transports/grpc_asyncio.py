@@ -15,25 +15,25 @@
 # limitations under the License.
 #
 
-from typing import Callable, Dict, Optional, Sequence, Tuple
+from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple
 
-from google.api_core import grpc_helpers  # type: ignore
-from google import auth  # type: ignore
+from google.api_core import grpc_helpers_async  # type: ignore
 from google.auth import credentials  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 
-
 import grpc  # type: ignore
+from grpc.experimental import aio  # type: ignore
 
 from google.cloud.bigquery.reservation_v1.types import reservation
 from google.cloud.bigquery.reservation_v1.types import reservation as gcbr_reservation
 from google.protobuf import empty_pb2 as empty  # type: ignore
 
 from .base import ReservationServiceTransport
+from .grpc import ReservationServiceGrpcTransport
 
 
-class ReservationServiceGrpcTransport(ReservationServiceTransport):
-    """gRPC backend transport for ReservationService.
+class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
+    """gRPC AsyncIO backend transport for ReservationService.
 
     This API allows users to manage their flat-rate BigQuery
     reservations.
@@ -61,19 +61,61 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     top of HTTP/2); the ``grpcio`` package must be installed.
     """
 
-    _stubs: Dict[str, Callable]
+    _grpc_channel: aio.Channel
+    _stubs: Dict[str, Callable] = {}
+
+    @classmethod
+    def create_channel(
+        cls,
+        host: str = "bigqueryreservation.googleapis.com",
+        credentials: credentials.Credentials = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        quota_project_id: Optional[str] = None,
+        **kwargs,
+    ) -> aio.Channel:
+        """Create and return a gRPC AsyncIO channel object.
+        Args:
+            address (Optional[str]): The host for the channel to use.
+            credentials (Optional[~.Credentials]): The
+                authorization credentials to attach to requests. These
+                credentials identify this application to the service. If
+                none are specified, the client will attempt to ascertain
+                the credentials from the environment.
+            credentials_file (Optional[str]): A file with credentials that can
+                be loaded with :func:`google.auth.load_credentials_from_file`.
+                This argument is ignored if ``channel`` is provided.
+            scopes (Optional[Sequence[str]]): A optional list of scopes needed for this
+                service. These are only used when credentials are not specified and
+                are passed to :func:`google.auth.default`.
+            quota_project_id (Optional[str]): An optional project to use for billing
+                and quota.
+            kwargs (Optional[dict]): Keyword arguments, which are passed to the
+                channel creation.
+        Returns:
+            aio.Channel: A gRPC AsyncIO channel object.
+        """
+        scopes = scopes or cls.AUTH_SCOPES
+        return grpc_helpers_async.create_channel(
+            host,
+            credentials=credentials,
+            credentials_file=credentials_file,
+            scopes=scopes,
+            quota_project_id=quota_project_id,
+            **kwargs,
+        )
 
     def __init__(
         self,
         *,
         host: str = "bigqueryreservation.googleapis.com",
         credentials: credentials.Credentials = None,
-        credentials_file: str = None,
-        scopes: Sequence[str] = None,
-        channel: grpc.Channel = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        channel: aio.Channel = None,
         api_mtls_endpoint: str = None,
         client_cert_source: Callable[[], Tuple[bytes, bytes]] = None,
-        quota_project_id: Optional[str] = None
+        quota_project_id=None,
     ) -> None:
         """Instantiate the transport.
 
@@ -88,9 +130,10 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
             credentials_file (Optional[str]): A file with credentials that can
                 be loaded with :func:`google.auth.load_credentials_from_file`.
                 This argument is ignored if ``channel`` is provided.
-            scopes (Optional(Sequence[str])): A list of scopes. This argument is
-                ignored if ``channel`` is provided.
-            channel (Optional[grpc.Channel]): A ``Channel`` instance through
+            scopes (Optional[Sequence[str]]): A optional list of scopes needed for this
+                service. These are only used when credentials are not specified and
+                are passed to :func:`google.auth.default`.
+            channel (Optional[aio.Channel]): A ``Channel`` instance through
                 which to make calls.
             api_mtls_endpoint (Optional[str]): The mutual TLS endpoint. If
                 provided, it overrides the ``host`` argument and tries to create
@@ -104,7 +147,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
                 and quota.
 
         Raises:
-          google.auth.exceptions.MutualTLSChannelError: If mutual TLS transport
+            google.auth.exceptions.MutualTlsChannelError: If mutual TLS transport
               creation failed for any reason.
           google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
               and ``credentials_file`` are passed.
@@ -122,11 +165,6 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
                 if ":" in api_mtls_endpoint
                 else api_mtls_endpoint + ":443"
             )
-
-            if credentials is None:
-                credentials, _ = auth.default(
-                    scopes=self.AUTH_SCOPES, quota_project_id=quota_project_id
-                )
 
             # Create SSL credentials with client_cert_source or application
             # default SSL credentials.
@@ -148,8 +186,6 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
                 quota_project_id=quota_project_id,
             )
 
-        self._stubs = {}  # type: Dict[str, Callable]
-
         # Run the base constructor.
         super().__init__(
             host=host,
@@ -159,53 +195,10 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
             quota_project_id=quota_project_id,
         )
 
-    @classmethod
-    def create_channel(
-        cls,
-        host: str = "bigqueryreservation.googleapis.com",
-        credentials: credentials.Credentials = None,
-        credentials_file: str = None,
-        scopes: Optional[Sequence[str]] = None,
-        quota_project_id: Optional[str] = None,
-        **kwargs
-    ) -> grpc.Channel:
-        """Create and return a gRPC channel object.
-        Args:
-            address (Optionsl[str]): The host for the channel to use.
-            credentials (Optional[~.Credentials]): The
-                authorization credentials to attach to requests. These
-                credentials identify this application to the service. If
-                none are specified, the client will attempt to ascertain
-                the credentials from the environment.
-            credentials_file (Optional[str]): A file with credentials that can
-                be loaded with :func:`google.auth.load_credentials_from_file`.
-                This argument is mutually exclusive with credentials.
-            scopes (Optional[Sequence[str]]): A optional list of scopes needed for this
-                service. These are only used when credentials are not specified and
-                are passed to :func:`google.auth.default`.
-            quota_project_id (Optional[str]): An optional project to use for billing
-                and quota.
-            kwargs (Optional[dict]): Keyword arguments, which are passed to the
-                channel creation.
-        Returns:
-            grpc.Channel: A gRPC channel object.
-
-        Raises:
-            google.api_core.exceptions.DuplicateCredentialArgs: If both ``credentials``
-              and ``credentials_file`` are passed.
-        """
-        scopes = scopes or cls.AUTH_SCOPES
-        return grpc_helpers.create_channel(
-            host,
-            credentials=credentials,
-            credentials_file=credentials_file,
-            scopes=scopes,
-            quota_project_id=quota_project_id,
-            **kwargs
-        )
+        self._stubs = {}
 
     @property
-    def grpc_channel(self) -> grpc.Channel:
+    def grpc_channel(self) -> aio.Channel:
         """Create the channel designed to connect to this service.
 
         This property caches on the instance; repeated calls return
@@ -225,7 +218,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def create_reservation(
         self
     ) -> Callable[
-        [gcbr_reservation.CreateReservationRequest], gcbr_reservation.Reservation
+        [gcbr_reservation.CreateReservationRequest],
+        Awaitable[gcbr_reservation.Reservation],
     ]:
         r"""Return a callable for the create reservation method over gRPC.
 
@@ -233,7 +227,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.CreateReservationRequest],
-                    ~.Reservation]:
+                    Awaitable[~.Reservation]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -253,7 +247,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def list_reservations(
         self
     ) -> Callable[
-        [reservation.ListReservationsRequest], reservation.ListReservationsResponse
+        [reservation.ListReservationsRequest],
+        Awaitable[reservation.ListReservationsResponse],
     ]:
         r"""Return a callable for the list reservations method over gRPC.
 
@@ -262,7 +257,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.ListReservationsRequest],
-                    ~.ListReservationsResponse]:
+                    Awaitable[~.ListReservationsResponse]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -281,14 +276,16 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def get_reservation(
         self
-    ) -> Callable[[reservation.GetReservationRequest], reservation.Reservation]:
+    ) -> Callable[
+        [reservation.GetReservationRequest], Awaitable[reservation.Reservation]
+    ]:
         r"""Return a callable for the get reservation method over gRPC.
 
         Returns information about the reservation.
 
         Returns:
             Callable[[~.GetReservationRequest],
-                    ~.Reservation]:
+                    Awaitable[~.Reservation]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -307,7 +304,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def delete_reservation(
         self
-    ) -> Callable[[reservation.DeleteReservationRequest], empty.Empty]:
+    ) -> Callable[[reservation.DeleteReservationRequest], Awaitable[empty.Empty]]:
         r"""Return a callable for the delete reservation method over gRPC.
 
         Deletes a reservation. Returns
@@ -316,7 +313,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.DeleteReservationRequest],
-                    ~.Empty]:
+                    Awaitable[~.Empty]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -336,7 +333,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def update_reservation(
         self
     ) -> Callable[
-        [gcbr_reservation.UpdateReservationRequest], gcbr_reservation.Reservation
+        [gcbr_reservation.UpdateReservationRequest],
+        Awaitable[gcbr_reservation.Reservation],
     ]:
         r"""Return a callable for the update reservation method over gRPC.
 
@@ -344,7 +342,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.UpdateReservationRequest],
-                    ~.Reservation]:
+                    Awaitable[~.Reservation]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -364,7 +362,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def create_capacity_commitment(
         self
     ) -> Callable[
-        [reservation.CreateCapacityCommitmentRequest], reservation.CapacityCommitment
+        [reservation.CreateCapacityCommitmentRequest],
+        Awaitable[reservation.CapacityCommitment],
     ]:
         r"""Return a callable for the create capacity commitment method over gRPC.
 
@@ -372,7 +371,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.CreateCapacityCommitmentRequest],
-                    ~.CapacityCommitment]:
+                    Awaitable[~.CapacityCommitment]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -393,7 +392,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
         self
     ) -> Callable[
         [reservation.ListCapacityCommitmentsRequest],
-        reservation.ListCapacityCommitmentsResponse,
+        Awaitable[reservation.ListCapacityCommitmentsResponse],
     ]:
         r"""Return a callable for the list capacity commitments method over gRPC.
 
@@ -402,7 +401,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.ListCapacityCommitmentsRequest],
-                    ~.ListCapacityCommitmentsResponse]:
+                    Awaitable[~.ListCapacityCommitmentsResponse]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -422,7 +421,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def get_capacity_commitment(
         self
     ) -> Callable[
-        [reservation.GetCapacityCommitmentRequest], reservation.CapacityCommitment
+        [reservation.GetCapacityCommitmentRequest],
+        Awaitable[reservation.CapacityCommitment],
     ]:
         r"""Return a callable for the get capacity commitment method over gRPC.
 
@@ -430,7 +430,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.GetCapacityCommitmentRequest],
-                    ~.CapacityCommitment]:
+                    Awaitable[~.CapacityCommitment]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -449,7 +449,9 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def delete_capacity_commitment(
         self
-    ) -> Callable[[reservation.DeleteCapacityCommitmentRequest], empty.Empty]:
+    ) -> Callable[
+        [reservation.DeleteCapacityCommitmentRequest], Awaitable[empty.Empty]
+    ]:
         r"""Return a callable for the delete capacity commitment method over gRPC.
 
         Deletes a capacity commitment. Attempting to delete capacity
@@ -458,7 +460,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.DeleteCapacityCommitmentRequest],
-                    ~.Empty]:
+                    Awaitable[~.Empty]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -478,7 +480,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def update_capacity_commitment(
         self
     ) -> Callable[
-        [reservation.UpdateCapacityCommitmentRequest], reservation.CapacityCommitment
+        [reservation.UpdateCapacityCommitmentRequest],
+        Awaitable[reservation.CapacityCommitment],
     ]:
         r"""Return a callable for the update capacity commitment method over gRPC.
 
@@ -493,7 +496,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.UpdateCapacityCommitmentRequest],
-                    ~.CapacityCommitment]:
+                    Awaitable[~.CapacityCommitment]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -514,7 +517,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
         self
     ) -> Callable[
         [reservation.SplitCapacityCommitmentRequest],
-        reservation.SplitCapacityCommitmentResponse,
+        Awaitable[reservation.SplitCapacityCommitmentResponse],
     ]:
         r"""Return a callable for the split capacity commitment method over gRPC.
 
@@ -530,7 +533,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.SplitCapacityCommitmentRequest],
-                    ~.SplitCapacityCommitmentResponse]:
+                    Awaitable[~.SplitCapacityCommitmentResponse]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -550,7 +553,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def merge_capacity_commitments(
         self
     ) -> Callable[
-        [reservation.MergeCapacityCommitmentsRequest], reservation.CapacityCommitment
+        [reservation.MergeCapacityCommitmentsRequest],
+        Awaitable[reservation.CapacityCommitment],
     ]:
         r"""Return a callable for the merge capacity commitments method over gRPC.
 
@@ -567,7 +571,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.MergeCapacityCommitmentsRequest],
-                    ~.CapacityCommitment]:
+                    Awaitable[~.CapacityCommitment]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -586,7 +590,9 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def create_assignment(
         self
-    ) -> Callable[[reservation.CreateAssignmentRequest], reservation.Assignment]:
+    ) -> Callable[
+        [reservation.CreateAssignmentRequest], Awaitable[reservation.Assignment]
+    ]:
         r"""Return a callable for the create assignment method over gRPC.
 
         Creates an assignment object which allows the given project to
@@ -624,7 +630,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.CreateAssignmentRequest],
-                    ~.Assignment]:
+                    Awaitable[~.Assignment]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -644,7 +650,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def list_assignments(
         self
     ) -> Callable[
-        [reservation.ListAssignmentsRequest], reservation.ListAssignmentsResponse
+        [reservation.ListAssignmentsRequest],
+        Awaitable[reservation.ListAssignmentsResponse],
     ]:
         r"""Return a callable for the list assignments method over gRPC.
 
@@ -673,7 +680,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.ListAssignmentsRequest],
-                    ~.ListAssignmentsResponse]:
+                    Awaitable[~.ListAssignmentsResponse]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -692,7 +699,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def delete_assignment(
         self
-    ) -> Callable[[reservation.DeleteAssignmentRequest], empty.Empty]:
+    ) -> Callable[[reservation.DeleteAssignmentRequest], Awaitable[empty.Empty]]:
         r"""Return a callable for the delete assignment method over gRPC.
 
         Deletes a assignment. No expansion will happen.
@@ -714,7 +721,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.DeleteAssignmentRequest],
-                    ~.Empty]:
+                    Awaitable[~.Empty]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -734,7 +741,8 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     def search_assignments(
         self
     ) -> Callable[
-        [reservation.SearchAssignmentsRequest], reservation.SearchAssignmentsResponse
+        [reservation.SearchAssignmentsRequest],
+        Awaitable[reservation.SearchAssignmentsResponse],
     ]:
         r"""Return a callable for the search assignments method over gRPC.
 
@@ -766,7 +774,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.SearchAssignmentsRequest],
-                    ~.SearchAssignmentsResponse]:
+                    Awaitable[~.SearchAssignmentsResponse]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -785,7 +793,9 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def move_assignment(
         self
-    ) -> Callable[[reservation.MoveAssignmentRequest], reservation.Assignment]:
+    ) -> Callable[
+        [reservation.MoveAssignmentRequest], Awaitable[reservation.Assignment]
+    ]:
         r"""Return a callable for the move assignment method over gRPC.
 
         Moves an assignment under a new reservation.
@@ -796,7 +806,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.MoveAssignmentRequest],
-                    ~.Assignment]:
+                    Awaitable[~.Assignment]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -815,14 +825,16 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def get_bi_reservation(
         self
-    ) -> Callable[[reservation.GetBiReservationRequest], reservation.BiReservation]:
+    ) -> Callable[
+        [reservation.GetBiReservationRequest], Awaitable[reservation.BiReservation]
+    ]:
         r"""Return a callable for the get bi reservation method over gRPC.
 
         Retrieves a BI reservation.
 
         Returns:
             Callable[[~.GetBiReservationRequest],
-                    ~.BiReservation]:
+                    Awaitable[~.BiReservation]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -841,7 +853,9 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
     @property
     def update_bi_reservation(
         self
-    ) -> Callable[[reservation.UpdateBiReservationRequest], reservation.BiReservation]:
+    ) -> Callable[
+        [reservation.UpdateBiReservationRequest], Awaitable[reservation.BiReservation]
+    ]:
         r"""Return a callable for the update bi reservation method over gRPC.
 
         Updates a BI reservation.
@@ -855,7 +869,7 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
 
         Returns:
             Callable[[~.UpdateBiReservationRequest],
-                    ~.BiReservation]:
+                    Awaitable[~.BiReservation]]:
                 A function that, when called, will call the underlying RPC
                 on the server.
         """
@@ -872,4 +886,4 @@ class ReservationServiceGrpcTransport(ReservationServiceTransport):
         return self._stubs["update_bi_reservation"]
 
 
-__all__ = ("ReservationServiceGrpcTransport",)
+__all__ = ("ReservationServiceGrpcAsyncIOTransport",)
