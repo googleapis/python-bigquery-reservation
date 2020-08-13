@@ -33,8 +33,8 @@ from google.protobuf import empty_pb2 as empty  # type: ignore
 try:
     _client_info = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
-            "google-cloud-bigquery-reservation"
-        ).version
+            "google-cloud-bigquery-reservation",
+        ).version,
     )
 except pkg_resources.DistributionNotFound:
     _client_info = gapic_v1.client_info.ClientInfo()
@@ -106,19 +106,19 @@ class ReservationServiceTransport(abc.ABC):
         # Precompute the wrapped methods.
         self._wrapped_methods = {
             self.create_reservation: gapic_v1.method.wrap_method(
-                self.create_reservation, default_timeout=None, client_info=_client_info
+                self.create_reservation, default_timeout=None, client_info=_client_info,
             ),
             self.list_reservations: gapic_v1.method.wrap_method(
-                self.list_reservations, default_timeout=None, client_info=_client_info
+                self.list_reservations, default_timeout=None, client_info=_client_info,
             ),
             self.get_reservation: gapic_v1.method.wrap_method(
-                self.get_reservation, default_timeout=None, client_info=_client_info
+                self.get_reservation, default_timeout=None, client_info=_client_info,
             ),
             self.delete_reservation: gapic_v1.method.wrap_method(
-                self.delete_reservation, default_timeout=None, client_info=_client_info
+                self.delete_reservation, default_timeout=None, client_info=_client_info,
             ),
             self.update_reservation: gapic_v1.method.wrap_method(
-                self.update_reservation, default_timeout=None, client_info=_client_info
+                self.update_reservation, default_timeout=None, client_info=_client_info,
             ),
             self.create_capacity_commitment: gapic_v1.method.wrap_method(
                 self.create_capacity_commitment,
@@ -156,22 +156,22 @@ class ReservationServiceTransport(abc.ABC):
                 client_info=_client_info,
             ),
             self.create_assignment: gapic_v1.method.wrap_method(
-                self.create_assignment, default_timeout=None, client_info=_client_info
+                self.create_assignment, default_timeout=None, client_info=_client_info,
             ),
             self.list_assignments: gapic_v1.method.wrap_method(
-                self.list_assignments, default_timeout=None, client_info=_client_info
+                self.list_assignments, default_timeout=None, client_info=_client_info,
             ),
             self.delete_assignment: gapic_v1.method.wrap_method(
-                self.delete_assignment, default_timeout=None, client_info=_client_info
+                self.delete_assignment, default_timeout=None, client_info=_client_info,
             ),
             self.search_assignments: gapic_v1.method.wrap_method(
-                self.search_assignments, default_timeout=None, client_info=_client_info
+                self.search_assignments, default_timeout=None, client_info=_client_info,
             ),
             self.move_assignment: gapic_v1.method.wrap_method(
-                self.move_assignment, default_timeout=None, client_info=_client_info
+                self.move_assignment, default_timeout=None, client_info=_client_info,
             ),
             self.get_bi_reservation: gapic_v1.method.wrap_method(
-                self.get_bi_reservation, default_timeout=None, client_info=_client_info
+                self.get_bi_reservation, default_timeout=None, client_info=_client_info,
             ),
             self.update_bi_reservation: gapic_v1.method.wrap_method(
                 self.update_bi_reservation,
@@ -182,7 +182,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def create_reservation(
-        self
+        self,
     ) -> typing.Callable[
         [gcbr_reservation.CreateReservationRequest],
         typing.Union[
@@ -193,7 +193,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def list_reservations(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.ListReservationsRequest],
         typing.Union[
@@ -205,7 +205,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def get_reservation(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.GetReservationRequest],
         typing.Union[
@@ -216,7 +216,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def delete_reservation(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.DeleteReservationRequest],
         typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
@@ -225,7 +225,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def update_reservation(
-        self
+        self,
     ) -> typing.Callable[
         [gcbr_reservation.UpdateReservationRequest],
         typing.Union[
@@ -236,7 +236,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def create_capacity_commitment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.CreateCapacityCommitmentRequest],
         typing.Union[
@@ -248,7 +248,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def list_capacity_commitments(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.ListCapacityCommitmentsRequest],
         typing.Union[
@@ -260,7 +260,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def get_capacity_commitment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.GetCapacityCommitmentRequest],
         typing.Union[
@@ -272,7 +272,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def delete_capacity_commitment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.DeleteCapacityCommitmentRequest],
         typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
@@ -281,7 +281,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def update_capacity_commitment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.UpdateCapacityCommitmentRequest],
         typing.Union[
@@ -293,7 +293,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def split_capacity_commitment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.SplitCapacityCommitmentRequest],
         typing.Union[
@@ -305,7 +305,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def merge_capacity_commitments(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.MergeCapacityCommitmentsRequest],
         typing.Union[
@@ -317,7 +317,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def create_assignment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.CreateAssignmentRequest],
         typing.Union[reservation.Assignment, typing.Awaitable[reservation.Assignment]],
@@ -326,7 +326,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def list_assignments(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.ListAssignmentsRequest],
         typing.Union[
@@ -338,7 +338,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def delete_assignment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.DeleteAssignmentRequest],
         typing.Union[empty.Empty, typing.Awaitable[empty.Empty]],
@@ -347,7 +347,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def search_assignments(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.SearchAssignmentsRequest],
         typing.Union[
@@ -359,7 +359,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def move_assignment(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.MoveAssignmentRequest],
         typing.Union[reservation.Assignment, typing.Awaitable[reservation.Assignment]],
@@ -368,7 +368,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def get_bi_reservation(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.GetBiReservationRequest],
         typing.Union[
@@ -379,7 +379,7 @@ class ReservationServiceTransport(abc.ABC):
 
     @property
     def update_bi_reservation(
-        self
+        self,
     ) -> typing.Callable[
         [reservation.UpdateBiReservationRequest],
         typing.Union[

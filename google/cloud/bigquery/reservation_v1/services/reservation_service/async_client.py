@@ -65,15 +65,15 @@ class ReservationServiceAsyncClient:
     DEFAULT_ENDPOINT = ReservationServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = ReservationServiceClient.DEFAULT_MTLS_ENDPOINT
 
-    capacity_commitment_path = staticmethod(
-        ReservationServiceClient.capacity_commitment_path
-    )
-
     bi_reservation_path = staticmethod(ReservationServiceClient.bi_reservation_path)
+
+    assignment_path = staticmethod(ReservationServiceClient.assignment_path)
 
     reservation_path = staticmethod(ReservationServiceClient.reservation_path)
 
-    assignment_path = staticmethod(ReservationServiceClient.assignment_path)
+    capacity_commitment_path = staticmethod(
+        ReservationServiceClient.capacity_commitment_path
+    )
 
     from_service_account_file = ReservationServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
@@ -121,7 +121,7 @@ class ReservationServiceAsyncClient:
         """
 
         self._client = ReservationServiceClient(
-            credentials=credentials, transport=transport, client_options=client_options
+            credentials=credentials, transport=transport, client_options=client_options,
         )
 
     async def create_reservation(
@@ -210,7 +210,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -285,12 +285,12 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListReservationsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -363,7 +363,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -431,7 +431,9 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        await rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     async def update_reservation(
         self,
@@ -509,7 +511,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -601,7 +603,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -676,12 +678,12 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListCapacityCommitmentsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -766,7 +768,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -834,7 +836,9 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        await rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     async def update_capacity_commitment(
         self,
@@ -932,7 +936,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1020,7 +1024,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1126,7 +1130,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1240,7 +1244,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1340,12 +1344,12 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.ListAssignmentsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -1428,7 +1432,9 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        await rpc(
+            request, retry=retry, timeout=timeout, metadata=metadata,
+        )
 
     async def search_assignments(
         self,
@@ -1540,12 +1546,12 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # This method is paged; wrap the response in a pager, which provides
         # an `__aiter__` convenience method.
         response = pagers.SearchAssignmentsAsyncPager(
-            method=rpc, request=request, response=response, metadata=metadata
+            method=rpc, request=request, response=response, metadata=metadata,
         )
 
         # Done; return the response.
@@ -1637,7 +1643,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1707,7 +1713,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1793,7 +1799,7 @@ class ReservationServiceAsyncClient:
         )
 
         # Send the request.
-        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata)
+        response = await rpc(request, retry=retry, timeout=timeout, metadata=metadata,)
 
         # Done; return the response.
         return response
@@ -1802,8 +1808,8 @@ class ReservationServiceAsyncClient:
 try:
     _client_info = gapic_v1.client_info.ClientInfo(
         gapic_version=pkg_resources.get_distribution(
-            "google-cloud-bigquery-reservation"
-        ).version
+            "google-cloud-bigquery-reservation",
+        ).version,
     )
 except pkg_resources.DistributionNotFound:
     _client_info = gapic_v1.client_info.ClientInfo()

@@ -155,17 +155,17 @@ class CapacityCommitment(proto.Message):
 
     slot_count = proto.Field(proto.INT64, number=2)
 
-    plan = proto.Field(proto.ENUM, number=3, enum=CommitmentPlan)
+    plan = proto.Field(proto.ENUM, number=3, enum=CommitmentPlan,)
 
-    state = proto.Field(proto.ENUM, number=4, enum=State)
+    state = proto.Field(proto.ENUM, number=4, enum=State,)
 
     commitment_end_time = proto.Field(
-        proto.MESSAGE, number=5, message=timestamp.Timestamp
+        proto.MESSAGE, number=5, message=timestamp.Timestamp,
     )
 
-    failure_status = proto.Field(proto.MESSAGE, number=7, message=status.Status)
+    failure_status = proto.Field(proto.MESSAGE, number=7, message=status.Status,)
 
-    renewal_plan = proto.Field(proto.ENUM, number=8, enum=CommitmentPlan)
+    renewal_plan = proto.Field(proto.ENUM, number=8, enum=CommitmentPlan,)
 
 
 class CreateReservationRequest(proto.Message):
@@ -188,7 +188,7 @@ class CreateReservationRequest(proto.Message):
 
     reservation_id = proto.Field(proto.STRING, number=2)
 
-    reservation = proto.Field(proto.MESSAGE, number=3, message=Reservation)
+    reservation = proto.Field(proto.MESSAGE, number=3, message=Reservation,)
 
 
 class ListReservationsRequest(proto.Message):
@@ -231,7 +231,7 @@ class ListReservationsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    reservations = proto.RepeatedField(proto.MESSAGE, number=1, message=Reservation)
+    reservations = proto.RepeatedField(proto.MESSAGE, number=1, message=Reservation,)
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -276,9 +276,9 @@ class UpdateReservationRequest(proto.Message):
             be updated.
     """
 
-    reservation = proto.Field(proto.MESSAGE, number=1, message=Reservation)
+    reservation = proto.Field(proto.MESSAGE, number=1, message=Reservation,)
 
-    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask)
+    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
 
 
 class CreateCapacityCommitmentRequest(proto.Message):
@@ -299,7 +299,7 @@ class CreateCapacityCommitmentRequest(proto.Message):
     parent = proto.Field(proto.STRING, number=1)
 
     capacity_commitment = proto.Field(
-        proto.MESSAGE, number=2, message=CapacityCommitment
+        proto.MESSAGE, number=2, message=CapacityCommitment,
     )
 
     enforce_single_admin_project_per_org = proto.Field(proto.BOOL, number=4)
@@ -346,7 +346,7 @@ class ListCapacityCommitmentsResponse(proto.Message):
         return self
 
     capacity_commitments = proto.RepeatedField(
-        proto.MESSAGE, number=1, message=CapacityCommitment
+        proto.MESSAGE, number=1, message=CapacityCommitment,
     )
 
     next_page_token = proto.Field(proto.STRING, number=2)
@@ -393,10 +393,10 @@ class UpdateCapacityCommitmentRequest(proto.Message):
     """
 
     capacity_commitment = proto.Field(
-        proto.MESSAGE, number=1, message=CapacityCommitment
+        proto.MESSAGE, number=1, message=CapacityCommitment,
     )
 
-    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask)
+    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
 
 
 class SplitCapacityCommitmentRequest(proto.Message):
@@ -429,9 +429,9 @@ class SplitCapacityCommitmentResponse(proto.Message):
             split.
     """
 
-    first = proto.Field(proto.MESSAGE, number=1, message=CapacityCommitment)
+    first = proto.Field(proto.MESSAGE, number=1, message=CapacityCommitment,)
 
-    second = proto.Field(proto.MESSAGE, number=2, message=CapacityCommitment)
+    second = proto.Field(proto.MESSAGE, number=2, message=CapacityCommitment,)
 
 
 class MergeCapacityCommitmentsRequest(proto.Message):
@@ -496,9 +496,9 @@ class Assignment(proto.Message):
 
     assignee = proto.Field(proto.STRING, number=4)
 
-    job_type = proto.Field(proto.ENUM, number=3, enum=JobType)
+    job_type = proto.Field(proto.ENUM, number=3, enum=JobType,)
 
-    state = proto.Field(proto.ENUM, number=6, enum=State)
+    state = proto.Field(proto.ENUM, number=6, enum=State,)
 
 
 class CreateAssignmentRequest(proto.Message):
@@ -517,7 +517,7 @@ class CreateAssignmentRequest(proto.Message):
 
     parent = proto.Field(proto.STRING, number=1)
 
-    assignment = proto.Field(proto.MESSAGE, number=2, message=Assignment)
+    assignment = proto.Field(proto.MESSAGE, number=2, message=Assignment,)
 
 
 class ListAssignmentsRequest(proto.Message):
@@ -565,7 +565,7 @@ class ListAssignmentsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    assignments = proto.RepeatedField(proto.MESSAGE, number=1, message=Assignment)
+    assignments = proto.RepeatedField(proto.MESSAGE, number=1, message=Assignment,)
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -638,7 +638,7 @@ class SearchAssignmentsResponse(proto.Message):
     def raw_page(self):
         return self
 
-    assignments = proto.RepeatedField(proto.MESSAGE, number=1, message=Assignment)
+    assignments = proto.RepeatedField(proto.MESSAGE, number=1, message=Assignment,)
 
     next_page_token = proto.Field(proto.STRING, number=2)
 
@@ -685,7 +685,7 @@ class BiReservation(proto.Message):
 
     name = proto.Field(proto.STRING, number=1)
 
-    update_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp)
+    update_time = proto.Field(proto.MESSAGE, number=3, message=timestamp.Timestamp,)
 
     size = proto.Field(proto.INT64, number=4)
 
@@ -713,9 +713,9 @@ class UpdateBiReservationRequest(proto.Message):
             request.
     """
 
-    bi_reservation = proto.Field(proto.MESSAGE, number=1, message=BiReservation)
+    bi_reservation = proto.Field(proto.MESSAGE, number=1, message=BiReservation,)
 
-    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask)
+    update_mask = proto.Field(proto.MESSAGE, number=2, message=field_mask.FieldMask,)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))
