@@ -65,11 +65,11 @@ class ReservationServiceAsyncClient:
     DEFAULT_ENDPOINT = ReservationServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = ReservationServiceClient.DEFAULT_MTLS_ENDPOINT
 
-    bi_reservation_path = staticmethod(ReservationServiceClient.bi_reservation_path)
-
     assignment_path = staticmethod(ReservationServiceClient.assignment_path)
 
     reservation_path = staticmethod(ReservationServiceClient.reservation_path)
+
+    bi_reservation_path = staticmethod(ReservationServiceClient.bi_reservation_path)
 
     capacity_commitment_path = staticmethod(
         ReservationServiceClient.capacity_commitment_path
@@ -1493,6 +1493,7 @@ class ReservationServiceAsyncClient:
                 -  ``assignee=projects/myproject``
                 -  ``assignee=folders/123``
                 -  ``assignee=organizations/456``
+
                 This corresponds to the ``query`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
