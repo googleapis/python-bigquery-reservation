@@ -19,9 +19,9 @@ from __future__ import absolute_import
 import sys
 import warnings
 
-from google.cloud.bigquery.reservation_v1 import types
-from google.cloud.bigquery.reservation_v1.gapic import enums
-from google.cloud.bigquery.reservation_v1.gapic import reservation_service_client
+from google.cloud.bigquery_reservation_v1 import types
+from google.cloud.bigquery_reservation_v1.gapic import enums
+from google.cloud.bigquery_reservation_v1.gapic import reservation_service_client
 
 
 if sys.version_info[:2] == (2, 7):

@@ -17,7 +17,7 @@
 
 import google.api_core.grpc_helpers
 
-from google.cloud.bigquery.reservation_v1.proto import reservation_pb2_grpc
+from google.cloud.bigquery_reservation_v1.proto import reservation_pb2_grpc
 
 
 class ReservationServiceGrpcTransport(object):

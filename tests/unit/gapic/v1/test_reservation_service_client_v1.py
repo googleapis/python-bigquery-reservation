@@ -19,8 +19,8 @@
 import mock
 import pytest
 
-from google.cloud.bigquery import reservation_v1
-from google.cloud.bigquery.reservation_v1.proto import reservation_pb2
+from google.cloud import bigquery_reservation_v1
+from google.cloud.bigquery_reservation_v1.proto import reservation_pb2
 from google.protobuf import empty_pb2
 
 
@@ -78,7 +78,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -97,7 +97,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -123,7 +123,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -144,7 +144,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -170,7 +170,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -189,7 +189,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -202,7 +202,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -220,7 +220,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -245,7 +245,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         response = client.update_reservation()
         assert expected_response == response
@@ -261,7 +261,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         with pytest.raises(CustomException):
             client.update_reservation()
@@ -278,7 +278,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -299,7 +299,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -325,7 +325,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -346,7 +346,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -367,7 +367,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.capacity_commitment_path(
@@ -388,7 +388,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.capacity_commitment_path(
@@ -403,7 +403,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.capacity_commitment_path(
@@ -423,7 +423,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.capacity_commitment_path(
@@ -445,7 +445,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         response = client.update_capacity_commitment()
         assert expected_response == response
@@ -461,7 +461,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         with pytest.raises(CustomException):
             client.update_capacity_commitment()
@@ -478,7 +478,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.capacity_commitment_path(
@@ -499,7 +499,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.capacity_commitment_path(
@@ -521,7 +521,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         response = client.merge_capacity_commitments()
         assert expected_response == response
@@ -537,7 +537,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         with pytest.raises(CustomException):
             client.merge_capacity_commitments()
@@ -554,7 +554,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -573,7 +573,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -597,7 +597,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -618,7 +618,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.reservation_path("[PROJECT]", "[LOCATION]", "[RESERVATION]")
@@ -632,7 +632,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.assignment_path(
@@ -652,7 +652,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.assignment_path(
@@ -680,7 +680,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -701,7 +701,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         parent = client.location_path("[PROJECT]", "[LOCATION]")
@@ -722,7 +722,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.assignment_path(
@@ -743,7 +743,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.assignment_path(
@@ -765,7 +765,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup Request
         name = client.bi_reservation_path("[PROJECT]", "[LOCATION]")
@@ -784,7 +784,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         # Setup request
         name = client.bi_reservation_path("[PROJECT]", "[LOCATION]")
@@ -804,7 +804,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         response = client.update_bi_reservation()
         assert expected_response == response
@@ -820,7 +820,7 @@ class TestReservationServiceClient(object):
         patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
-            client = reservation_v1.ReservationServiceClient()
+            client = bigquery_reservation_v1.ReservationServiceClient()
 
         with pytest.raises(CustomException):
             client.update_bi_reservation()

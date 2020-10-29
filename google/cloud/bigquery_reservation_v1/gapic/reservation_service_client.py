@@ -31,13 +31,13 @@ import google.api_core.page_iterator
 import google.api_core.path_template
 import grpc
 
-from google.cloud.bigquery.reservation_v1.gapic import enums
-from google.cloud.bigquery.reservation_v1.gapic import reservation_service_client_config
-from google.cloud.bigquery.reservation_v1.gapic.transports import (
+from google.cloud.bigquery_reservation_v1.gapic import enums
+from google.cloud.bigquery_reservation_v1.gapic import reservation_service_client_config
+from google.cloud.bigquery_reservation_v1.gapic.transports import (
     reservation_service_grpc_transport,
 )
-from google.cloud.bigquery.reservation_v1.proto import reservation_pb2
-from google.cloud.bigquery.reservation_v1.proto import reservation_pb2_grpc
+from google.cloud.bigquery_reservation_v1.proto import reservation_pb2
+from google.cloud.bigquery_reservation_v1.proto import reservation_pb2_grpc
 from google.protobuf import empty_pb2
 from google.protobuf import field_mask_pb2
 
@@ -269,9 +269,9 @@ class ReservationServiceClient(object):
         Creates a new reservation resource.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.location_path('[PROJECT]', '[LOCATION]')
             >>>
@@ -282,10 +282,10 @@ class ReservationServiceClient(object):
                 ``projects/myproject/locations/US``
             reservation_id (str): The reservation ID. This field must only contain lower case alphanumeric
                 characters or dash. Max length is 64 characters.
-            reservation (Union[dict, ~google.cloud.bigquery.reservation_v1.types.Reservation]): Definition of the new reservation to create.
+            reservation (Union[dict, ~google.cloud.bigquery_reservation_v1.types.Reservation]): Definition of the new reservation to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.Reservation`
+                message :class:`~google.cloud.bigquery_reservation_v1.types.Reservation`
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -296,7 +296,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.Reservation` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.Reservation` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -348,9 +348,9 @@ class ReservationServiceClient(object):
         Lists all the reservations for the project in the specified location.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.location_path('[PROJECT]', '[LOCATION]')
             >>>
@@ -387,7 +387,7 @@ class ReservationServiceClient(object):
 
         Returns:
             A :class:`~google.api_core.page_iterator.PageIterator` instance.
-            An iterable of :class:`~google.cloud.bigquery.reservation_v1.types.Reservation` instances.
+            An iterable of :class:`~google.cloud.bigquery_reservation_v1.types.Reservation` instances.
             You can also iterate over the pages of the response
             using its `pages` property.
 
@@ -451,9 +451,9 @@ class ReservationServiceClient(object):
         Returns information about the reservation.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.reservation_path('[PROJECT]', '[LOCATION]', '[RESERVATION]')
             >>>
@@ -472,7 +472,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.Reservation` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.Reservation` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -523,9 +523,9 @@ class ReservationServiceClient(object):
         assignments.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.reservation_path('[PROJECT]', '[LOCATION]', '[RESERVATION]')
             >>>
@@ -591,21 +591,21 @@ class ReservationServiceClient(object):
         Updates an existing reservation resource.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> response = client.update_reservation()
 
         Args:
-            reservation (Union[dict, ~google.cloud.bigquery.reservation_v1.types.Reservation]): Content of the reservation to update.
+            reservation (Union[dict, ~google.cloud.bigquery_reservation_v1.types.Reservation]): Content of the reservation to update.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.Reservation`
-            update_mask (Union[dict, ~google.cloud.bigquery.reservation_v1.types.FieldMask]): Standard field mask for the set of fields to be updated.
+                message :class:`~google.cloud.bigquery_reservation_v1.types.Reservation`
+            update_mask (Union[dict, ~google.cloud.bigquery_reservation_v1.types.FieldMask]): Standard field mask for the set of fields to be updated.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.FieldMask`
+                message :class:`~google.cloud.bigquery_reservation_v1.types.FieldMask`
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -616,7 +616,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.Reservation` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.Reservation` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -669,9 +669,9 @@ class ReservationServiceClient(object):
         Creates a new capacity commitment resource.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.location_path('[PROJECT]', '[LOCATION]')
             >>>
@@ -680,10 +680,10 @@ class ReservationServiceClient(object):
         Args:
             parent (str): Required. Resource name of the parent reservation. E.g.,
                 ``projects/myproject/locations/US``
-            capacity_commitment (Union[dict, ~google.cloud.bigquery.reservation_v1.types.CapacityCommitment]): Content of the capacity commitment to create.
+            capacity_commitment (Union[dict, ~google.cloud.bigquery_reservation_v1.types.CapacityCommitment]): Content of the capacity commitment to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment`
+                message :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment`
             enforce_single_admin_project_per_org (bool): If true, fail the request if another project in the organization has a
                 capacity commitment.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
@@ -696,7 +696,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -752,9 +752,9 @@ class ReservationServiceClient(object):
         Lists all the capacity commitments for the admin project.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.location_path('[PROJECT]', '[LOCATION]')
             >>>
@@ -791,7 +791,7 @@ class ReservationServiceClient(object):
 
         Returns:
             A :class:`~google.api_core.page_iterator.PageIterator` instance.
-            An iterable of :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment` instances.
+            An iterable of :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment` instances.
             You can also iterate over the pages of the response
             using its `pages` property.
 
@@ -855,9 +855,9 @@ class ReservationServiceClient(object):
         Returns information about the capacity commitment.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.capacity_commitment_path('[PROJECT]', '[LOCATION]', '[CAPACITY_COMMITMENT]')
             >>>
@@ -876,7 +876,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -927,9 +927,9 @@ class ReservationServiceClient(object):
         ``google.rpc.Code.FAILED_PRECONDITION``.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.capacity_commitment_path('[PROJECT]', '[LOCATION]', '[CAPACITY_COMMITMENT]')
             >>>
@@ -1003,21 +1003,21 @@ class ReservationServiceClient(object):
         with the error code ``google.rpc.Code.FAILED_PRECONDITION``.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> response = client.update_capacity_commitment()
 
         Args:
-            capacity_commitment (Union[dict, ~google.cloud.bigquery.reservation_v1.types.CapacityCommitment]): Content of the capacity commitment to update.
+            capacity_commitment (Union[dict, ~google.cloud.bigquery_reservation_v1.types.CapacityCommitment]): Content of the capacity commitment to update.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment`
-            update_mask (Union[dict, ~google.cloud.bigquery.reservation_v1.types.FieldMask]): Standard field mask for the set of fields to be updated.
+                message :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment`
+            update_mask (Union[dict, ~google.cloud.bigquery_reservation_v1.types.FieldMask]): Standard field mask for the set of fields to be updated.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.FieldMask`
+                message :class:`~google.cloud.bigquery_reservation_v1.types.FieldMask`
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1028,7 +1028,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -1090,9 +1090,9 @@ class ReservationServiceClient(object):
         delete it.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.capacity_commitment_path('[PROJECT]', '[LOCATION]', '[CAPACITY_COMMITMENT]')
             >>>
@@ -1112,7 +1112,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.SplitCapacityCommitmentResponse` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.SplitCapacityCommitmentResponse` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -1171,9 +1171,9 @@ class ReservationServiceClient(object):
         with the error code ``google.rpc.Code.FAILED_PRECONDITION``.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> response = client.merge_capacity_commitments()
 
@@ -1195,7 +1195,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.CapacityCommitment` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.CapacityCommitment` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -1278,9 +1278,9 @@ class ReservationServiceClient(object):
         assignment does not match location of the reservation.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.reservation_path('[PROJECT]', '[LOCATION]', '[RESERVATION]')
             >>>
@@ -1289,10 +1289,10 @@ class ReservationServiceClient(object):
         Args:
             parent (str): Required. The parent resource name of the assignment E.g.
                 ``projects/myproject/locations/US/reservations/team1-prod``
-            assignment (Union[dict, ~google.cloud.bigquery.reservation_v1.types.Assignment]): Assignment resource to create.
+            assignment (Union[dict, ~google.cloud.bigquery_reservation_v1.types.Assignment]): Assignment resource to create.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.Assignment`
+                message :class:`~google.cloud.bigquery_reservation_v1.types.Assignment`
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1303,7 +1303,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.Assignment` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.Assignment` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -1376,9 +1376,9 @@ class ReservationServiceClient(object):
         **Note** "-" cannot be used for projects nor locations.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.reservation_path('[PROJECT]', '[LOCATION]', '[RESERVATION]')
             >>>
@@ -1420,7 +1420,7 @@ class ReservationServiceClient(object):
 
         Returns:
             A :class:`~google.api_core.page_iterator.PageIterator` instance.
-            An iterable of :class:`~google.cloud.bigquery.reservation_v1.types.Assignment` instances.
+            An iterable of :class:`~google.cloud.bigquery_reservation_v1.types.Assignment` instances.
             You can also iterate over the pages of the response
             using its `pages` property.
 
@@ -1498,9 +1498,9 @@ class ReservationServiceClient(object):
         queries from ``project2`` will switch to use on-demand mode.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.assignment_path('[PROJECT]', '[LOCATION]', '[RESERVATION]', '[ASSIGNMENT]')
             >>>
@@ -1587,9 +1587,9 @@ class ReservationServiceClient(object):
         **Note** "-" cannot be used for projects nor locations.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> parent = client.location_path('[PROJECT]', '[LOCATION]')
             >>>
@@ -1633,7 +1633,7 @@ class ReservationServiceClient(object):
 
         Returns:
             A :class:`~google.api_core.page_iterator.PageIterator` instance.
-            An iterable of :class:`~google.cloud.bigquery.reservation_v1.types.Assignment` instances.
+            An iterable of :class:`~google.cloud.bigquery_reservation_v1.types.Assignment` instances.
             You can also iterate over the pages of the response
             using its `pages` property.
 
@@ -1702,9 +1702,9 @@ class ReservationServiceClient(object):
         associated reservation.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.assignment_path('[PROJECT]', '[LOCATION]', '[RESERVATION]', '[ASSIGNMENT]')
             >>>
@@ -1725,7 +1725,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.Assignment` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.Assignment` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -1776,9 +1776,9 @@ class ReservationServiceClient(object):
         Retrieves a BI reservation.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> name = client.bi_reservation_path('[PROJECT]', '[LOCATION]')
             >>>
@@ -1797,7 +1797,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.BiReservation` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.BiReservation` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request
@@ -1853,21 +1853,21 @@ class ReservationServiceClient(object):
         0. In order to release BI capacity reservation size must be set to 0.
 
         Example:
-            >>> from google.cloud.bigquery import reservation_v1
+            >>> from google.cloud import bigquery_reservation_v1
             >>>
-            >>> client = reservation_v1.ReservationServiceClient()
+            >>> client = bigquery_reservation_v1.ReservationServiceClient()
             >>>
             >>> response = client.update_bi_reservation()
 
         Args:
-            bi_reservation (Union[dict, ~google.cloud.bigquery.reservation_v1.types.BiReservation]): A reservation to update.
+            bi_reservation (Union[dict, ~google.cloud.bigquery_reservation_v1.types.BiReservation]): A reservation to update.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.BiReservation`
-            update_mask (Union[dict, ~google.cloud.bigquery.reservation_v1.types.FieldMask]): A list of fields to be updated in this request.
+                message :class:`~google.cloud.bigquery_reservation_v1.types.BiReservation`
+            update_mask (Union[dict, ~google.cloud.bigquery_reservation_v1.types.FieldMask]): A list of fields to be updated in this request.
 
                 If a dict is provided, it must be of the same form as the protobuf
-                message :class:`~google.cloud.bigquery.reservation_v1.types.FieldMask`
+                message :class:`~google.cloud.bigquery_reservation_v1.types.FieldMask`
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
@@ -1878,7 +1878,7 @@ class ReservationServiceClient(object):
                 that is provided to the method.
 
         Returns:
-            A :class:`~google.cloud.bigquery.reservation_v1.types.BiReservation` instance.
+            A :class:`~google.cloud.bigquery_reservation_v1.types.BiReservation` instance.
 
         Raises:
             google.api_core.exceptions.GoogleAPICallError: If the request

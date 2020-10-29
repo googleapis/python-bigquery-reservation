@@ -17,9 +17,9 @@
 
 from __future__ import absolute_import
 
-from google.cloud.bigquery.reservation_v1 import ReservationServiceClient
-from google.cloud.bigquery.reservation_v1 import enums
-from google.cloud.bigquery.reservation_v1 import types
+from google.cloud.bigquery_reservation_v1 import ReservationServiceClient
+from google.cloud.bigquery_reservation_v1 import enums
+from google.cloud.bigquery_reservation_v1 import types
 
 
 __all__ = (
