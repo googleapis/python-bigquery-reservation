@@ -1823,6 +1823,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 -  ``assignee=organizations/456``
 
 
+
                 This corresponds to the ``query`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
