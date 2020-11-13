@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-bigquery-reservation.git",
-        "sha": "de598cac1ff97896c6b9f25a88e4d241756085ef"
+        "sha": "a4917442040d899bdbd588076c86740175c6f88f"
       }
     },
     {
@@ -90,6 +90,7 @@
     "CONTRIBUTING.rst",
     "LICENSE",
     "MANIFEST.in",
+    "bigquery-reservation-v1-py.tar.gz",
     "docs/_static/custom.css",
     "docs/_templates/layout.html",
     "docs/bigquery_reservation_v1/services.rst",
