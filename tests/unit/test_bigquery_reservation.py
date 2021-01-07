@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 
+
 def test_versionless_import():
     from google.cloud import bigquery_reservation
 
