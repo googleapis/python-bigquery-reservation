@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import argparse
-from google.cloud import bigquery_reservation_v1
-
 # [START bigqueryreservation_quickstart]
+import argparse
+
+from google.cloud import bigquery_reservation_v1
 
 
 def main(project_id="your-project-id", location="US"):
