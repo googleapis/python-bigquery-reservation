@@ -34,16 +34,15 @@ def report_capacity_commitments(
     """Prints details and summary information about capacity commitments for
     a given admin project and location.
     """
-    print(
-        "Capacity commitments in project {} in location {}".format(project_id, location)
+    print(f"Capacity commitments in project {project_id} in location {location}")
+    req = bigquery_reservation_v1.ListCapacityCommitmentsRequest(
+        parent=client.common_location_path(project_id, location)
     )
-    req = bigquery_reservation_v1.ListCapacityCommitmentsRequest()
-    req.parent = "projects/{}/locations/{}".format(project_id, location)
     total_commitments = 0
     for commitment in client.list_capacity_commitments(request=req):
-        print("\tCommitment {} in state {}".format(commitment.name, commitment.state))
+        print(f"\tCommitment {commitment.name} in state {commitment.state}")
         total_commitments = total_commitments + 1
-    print("\n{} commitments processed.".format(total_commitments))
+    print(f"\n{total_commitments} commitments processed.")
 
 
 def report_reservations(
@@ -55,17 +54,17 @@ def report_reservations(
     a given admin project and location.
     """
     print("Reservations in project {} in location {}".format(project_id, location))
-    req = bigquery_reservation_v1.ListReservationsRequest()
-    req.parent = "projects/{}/locations/{}".format(project_id, location)
+    req = bigquery_reservation_v1.ListReservationsRequest(
+        parent=client.common_location_path(project_id, location)
+    )
     total_reservations = 0
     for reservation in client.list_reservations(request=req):
         print(
-            "\tReservation {} has {} slot capacity.".format(
-                reservation.name, reservation.slot_capacity
-            )
+            f"\tReservation {reservation.name} "
+            f"has {reservation.slot_capacity} slot capacity."
         )
         total_reservations = total_reservations + 1
-    print("\n{} reservations processed.".format(total_reservations))
+    print(f"\n{total_reservations} reservations processed.")
 
 
 if __name__ == "__main__":
