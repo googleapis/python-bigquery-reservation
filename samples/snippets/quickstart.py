@@ -18,10 +18,7 @@ import argparse
 from google.cloud import bigquery_reservation_v1
 
 
-def main(
-    project_id : str = "your-project-id",
-    location : str = "US"
-) -> None:
+def main(project_id: str = "your-project-id", location: str = "US") -> None:
     # Constructs the client for interacting with the service.
     client = bigquery_reservation_v1.ReservationServiceClient()
 
@@ -30,9 +27,9 @@ def main(
 
 
 def report_capacity_commitments(
-    client : bigquery_reservation_v1.ReservationServiceClient,
-    project_id : str,
-    location : str,
+    client: bigquery_reservation_v1.ReservationServiceClient,
+    project_id: str,
+    location: str,
 ) -> None:
     """Prints details and summary information about capacity commitments for
     a given admin project and location.
@@ -50,9 +47,9 @@ def report_capacity_commitments(
 
 
 def report_reservations(
-    client : bigquery_reservation_v1.ReservationServiceClient,
-    project_id : str,
-    location : str,
+    client: bigquery_reservation_v1.ReservationServiceClient,
+    project_id: str,
+    location: str,
 ) -> None:
     """Prints details and summary information about reservations defined within
     a given admin project and location.

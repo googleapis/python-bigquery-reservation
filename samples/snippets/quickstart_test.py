@@ -24,10 +24,7 @@ def project_id() -> str:
     return os.environ["PROJECT_ID"]
 
 
-def test_quickstart(
-    capsys : pytest.CaptureFixture,
-    project_id : str
-) -> None:
+def test_quickstart(capsys: pytest.CaptureFixture, project_id: str) -> None:
     quickstart.main(project_id)
     out, _ = capsys.readouterr()
     assert " reservations processed." in out
