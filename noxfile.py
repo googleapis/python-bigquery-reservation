@@ -81,8 +81,9 @@ def default(session):
     session.run(
         "py.test",
         "--quiet",
-        "--cov=google/cloud",
-        "--cov=tests/unit",
+        "--cov=google.cloud.bigqueryreservation",
+        "--cov=google.cloud",
+        "--cov=tests.unit",
         "--cov-append",
         "--cov-config=.coveragerc",
         "--cov-report=",
