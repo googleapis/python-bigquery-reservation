@@ -21,7 +21,7 @@ from . import quickstart
 
 @pytest.fixture()
 def project_id() -> str:
-    return os.environ["PROJECT_ID"]
+    return os.environ["GOOGLE_CLOUD_PROJECT"]
 
 
 def test_quickstart(capsys: pytest.CaptureFixture, project_id: str) -> None:
