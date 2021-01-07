@@ -19,7 +19,7 @@ import io
 import os
 import setuptools  # type: ignore
 
-version = "0.2.0"
+version = "1.0.0"
 
 package_root = os.path.abspath(os.path.dirname(__file__))
 
@@ -42,11 +42,8 @@ setuptools.setup(
     platforms="Posix; MacOS X; Windows",
     include_package_data=True,
     install_requires=(
-        "google-auth >= 1.14.0",
-        "google-api-core >= 1.8.0, < 2.0.0dev",
-        "googleapis-common-protos >= 1.5.8",
-        "grpcio >= 1.10.0",
-        "proto-plus >= 0.4.0",
+        "google-api-core[grpc] >= 1.22.0, < 2.0.0dev",
+        "proto-plus >= 1.4.0",
     ),
     python_requires=">=3.6",
     setup_requires=["libcst >= 0.2.5"],
