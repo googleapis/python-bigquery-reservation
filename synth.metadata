@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-bigquery-reservation.git",
-        "sha": "f70fba55be6e196134a18f05c081e0a1c0b91510"
+        "sha": "4215e2652157713ae8cbcbed74dbeaecb1f493d8"
       }
     },
     {
@@ -115,6 +115,9 @@
     "mypy.ini",
     "noxfile.py",
     "renovate.json",
+    "samples/AUTHORING_GUIDE.md",
+    "samples/CONTRIBUTING.md",
+    "samples/snippets/noxfile.py",
     "scripts/decrypt-secrets.sh",
     "scripts/fixup_bigquery_reservation_v1_keywords.py",
     "scripts/readme-gen/readme_gen.py",
