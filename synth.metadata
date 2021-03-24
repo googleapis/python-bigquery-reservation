@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-bigquery-reservation.git",
-        "sha": "4a7edd187f19c74714f7f4787015ed44673a0284"
+        "sha": "c67c36c17a155092f9615ed1e1ed7042d5ffc31b"
       }
     },
     {
@@ -19,14 +19,14 @@
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "79c8dd7ee768292f933012d3a69a5b4676404cda"
+        "sha": "f5c5904fb0c6aa3b3730eadf4e5a4485afc65726"
       }
     },
     {
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "79c8dd7ee768292f933012d3a69a5b4676404cda"
+        "sha": "f5c5904fb0c6aa3b3730eadf4e5a4485afc65726"
       }
     }
   ],
