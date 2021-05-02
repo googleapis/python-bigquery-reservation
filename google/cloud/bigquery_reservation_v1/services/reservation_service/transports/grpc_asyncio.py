@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import warnings
-from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple
+from typing import Awaitable, Callable, Dict, Optional, Sequence, Tuple, Union
 
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import grpc_helpers_async  # type: ignore
 from google import auth  # type: ignore
 from google.auth import credentials  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
+import packaging.version
 
 import grpc  # type: ignore
 from grpc.experimental import aio  # type: ignore
@@ -30,7 +29,6 @@ from grpc.experimental import aio  # type: ignore
 from google.cloud.bigquery_reservation_v1.types import reservation
 from google.cloud.bigquery_reservation_v1.types import reservation as gcbr_reservation
 from google.protobuf import empty_pb2 as empty  # type: ignore
-
 from .base import ReservationServiceTransport, DEFAULT_CLIENT_INFO
 from .grpc import ReservationServiceGrpcTransport
 
@@ -98,13 +96,15 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         Returns:
             aio.Channel: A gRPC AsyncIO channel object.
         """
-        scopes = scopes or cls.AUTH_SCOPES
+
+        self_signed_jwt_kwargs = cls._get_self_signed_jwt_kwargs(host, scopes)
+
         return grpc_helpers_async.create_channel(
             host,
             credentials=credentials,
             credentials_file=credentials_file,
-            scopes=scopes,
             quota_project_id=quota_project_id,
+            **self_signed_jwt_kwargs,
             **kwargs,
         )
 
@@ -126,7 +126,8 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         """Instantiate the transport.
 
         Args:
-            host (Optional[str]): The hostname to connect to.
+            host (Optional[str]):
+                 The hostname to connect to.
             credentials (Optional[google.auth.credentials.Credentials]): The
                 authorization credentials to attach to requests. These
                 credentials identify the application to the service; if none
@@ -184,7 +185,6 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
             # If a channel was explicitly provided, set it.
             self._grpc_channel = channel
             self._ssl_channel_credentials = None
-
         else:
             if api_mtls_endpoint:
                 host = api_mtls_endpoint
@@ -250,7 +250,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [gcbr_reservation.CreateReservationRequest],
         Awaitable[gcbr_reservation.Reservation],
     ]:
-        r"""Return a callable for the create reservation method over gRPC.
+        r"""Return a callable for the
+        create reservation
+          method over gRPC.
 
         Creates a new reservation resource.
 
@@ -279,7 +281,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.ListReservationsRequest],
         Awaitable[reservation.ListReservationsResponse],
     ]:
-        r"""Return a callable for the list reservations method over gRPC.
+        r"""Return a callable for the
+        list reservations
+          method over gRPC.
 
         Lists all the reservations for the project in the
         specified location.
@@ -308,7 +312,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     ) -> Callable[
         [reservation.GetReservationRequest], Awaitable[reservation.Reservation]
     ]:
-        r"""Return a callable for the get reservation method over gRPC.
+        r"""Return a callable for the
+        get reservation
+          method over gRPC.
 
         Returns information about the reservation.
 
@@ -334,7 +340,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     def delete_reservation(
         self,
     ) -> Callable[[reservation.DeleteReservationRequest], Awaitable[empty.Empty]]:
-        r"""Return a callable for the delete reservation method over gRPC.
+        r"""Return a callable for the
+        delete reservation
+          method over gRPC.
 
         Deletes a reservation. Returns
         ``google.rpc.Code.FAILED_PRECONDITION`` when reservation has
@@ -365,7 +373,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [gcbr_reservation.UpdateReservationRequest],
         Awaitable[gcbr_reservation.Reservation],
     ]:
-        r"""Return a callable for the update reservation method over gRPC.
+        r"""Return a callable for the
+        update reservation
+          method over gRPC.
 
         Updates an existing reservation resource.
 
@@ -394,7 +404,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.CreateCapacityCommitmentRequest],
         Awaitable[reservation.CapacityCommitment],
     ]:
-        r"""Return a callable for the create capacity commitment method over gRPC.
+        r"""Return a callable for the
+        create capacity commitment
+          method over gRPC.
 
         Creates a new capacity commitment resource.
 
@@ -423,7 +435,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.ListCapacityCommitmentsRequest],
         Awaitable[reservation.ListCapacityCommitmentsResponse],
     ]:
-        r"""Return a callable for the list capacity commitments method over gRPC.
+        r"""Return a callable for the
+        list capacity commitments
+          method over gRPC.
 
         Lists all the capacity commitments for the admin
         project.
@@ -453,7 +467,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.GetCapacityCommitmentRequest],
         Awaitable[reservation.CapacityCommitment],
     ]:
-        r"""Return a callable for the get capacity commitment method over gRPC.
+        r"""Return a callable for the
+        get capacity commitment
+          method over gRPC.
 
         Returns information about the capacity commitment.
 
@@ -481,7 +497,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     ) -> Callable[
         [reservation.DeleteCapacityCommitmentRequest], Awaitable[empty.Empty]
     ]:
-        r"""Return a callable for the delete capacity commitment method over gRPC.
+        r"""Return a callable for the
+        delete capacity commitment
+          method over gRPC.
 
         Deletes a capacity commitment. Attempting to delete capacity
         commitment before its commitment_end_time will fail with the
@@ -512,7 +530,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.UpdateCapacityCommitmentRequest],
         Awaitable[reservation.CapacityCommitment],
     ]:
-        r"""Return a callable for the update capacity commitment method over gRPC.
+        r"""Return a callable for the
+        update capacity commitment
+          method over gRPC.
 
         Updates an existing capacity commitment.
 
@@ -548,7 +568,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.SplitCapacityCommitmentRequest],
         Awaitable[reservation.SplitCapacityCommitmentResponse],
     ]:
-        r"""Return a callable for the split capacity commitment method over gRPC.
+        r"""Return a callable for the
+        split capacity commitment
+          method over gRPC.
 
         Splits capacity commitment to two commitments of the same plan
         and ``commitment_end_time``.
@@ -585,7 +607,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.MergeCapacityCommitmentsRequest],
         Awaitable[reservation.CapacityCommitment],
     ]:
-        r"""Return a callable for the merge capacity commitments method over gRPC.
+        r"""Return a callable for the
+        merge capacity commitments
+          method over gRPC.
 
         Merges capacity commitments of the same plan into a single
         commitment.
@@ -622,7 +646,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     ) -> Callable[
         [reservation.CreateAssignmentRequest], Awaitable[reservation.Assignment]
     ]:
-        r"""Return a callable for the create assignment method over gRPC.
+        r"""Return a callable for the
+        create assignment
+          method over gRPC.
 
         Creates an assignment object which allows the given project to
         submit jobs of a certain type using slots from the specified
@@ -682,7 +708,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.ListAssignmentsRequest],
         Awaitable[reservation.ListAssignmentsResponse],
     ]:
-        r"""Return a callable for the list assignments method over gRPC.
+        r"""Return a callable for the
+        list assignments
+          method over gRPC.
 
         Lists assignments.
 
@@ -729,7 +757,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     def delete_assignment(
         self,
     ) -> Callable[[reservation.DeleteAssignmentRequest], Awaitable[empty.Empty]]:
-        r"""Return a callable for the delete assignment method over gRPC.
+        r"""Return a callable for the
+        delete assignment
+          method over gRPC.
 
         Deletes a assignment. No expansion will happen.
 
@@ -773,7 +803,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
         [reservation.SearchAssignmentsRequest],
         Awaitable[reservation.SearchAssignmentsResponse],
     ]:
-        r"""Return a callable for the search assignments method over gRPC.
+        r"""Return a callable for the
+        search assignments
+          method over gRPC.
 
         Looks up assignments for a specified resource for a particular
         region. If the request is about a project:
@@ -825,7 +857,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     ) -> Callable[
         [reservation.MoveAssignmentRequest], Awaitable[reservation.Assignment]
     ]:
-        r"""Return a callable for the move assignment method over gRPC.
+        r"""Return a callable for the
+        move assignment
+          method over gRPC.
 
         Moves an assignment under a new reservation.
         This differs from removing an existing assignment and
@@ -857,7 +891,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     ) -> Callable[
         [reservation.GetBiReservationRequest], Awaitable[reservation.BiReservation]
     ]:
-        r"""Return a callable for the get bi reservation method over gRPC.
+        r"""Return a callable for the
+        get bi reservation
+          method over gRPC.
 
         Retrieves a BI reservation.
 
@@ -885,7 +921,9 @@ class ReservationServiceGrpcAsyncIOTransport(ReservationServiceTransport):
     ) -> Callable[
         [reservation.UpdateBiReservationRequest], Awaitable[reservation.BiReservation]
     ]:
-        r"""Return a callable for the update bi reservation method over gRPC.
+        r"""Return a callable for the
+        update bi reservation
+          method over gRPC.
 
         Updates a BI reservation.
 
