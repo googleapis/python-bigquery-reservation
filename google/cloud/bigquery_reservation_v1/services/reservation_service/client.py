@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 from collections import OrderedDict
 from distutils import util
 import os
@@ -23,10 +21,10 @@ from typing import Callable, Dict, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib  # type: ignore
-from google.api_core import exceptions  # type: ignore
+from google.api_core import exceptions as core_exceptions  # type: ignore
 from google.api_core import gapic_v1  # type: ignore
 from google.api_core import retry as retries  # type: ignore
-from google.auth import credentials  # type: ignore
+from google.auth import credentials as ga_credentials  # type: ignore
 from google.auth.transport import mtls  # type: ignore
 from google.auth.transport.grpc import SslCredentials  # type: ignore
 from google.auth.exceptions import MutualTLSChannelError  # type: ignore
@@ -35,10 +33,9 @@ from google.oauth2 import service_account  # type: ignore
 from google.cloud.bigquery_reservation_v1.services.reservation_service import pagers
 from google.cloud.bigquery_reservation_v1.types import reservation
 from google.cloud.bigquery_reservation_v1.types import reservation as gcbr_reservation
-from google.protobuf import field_mask_pb2 as field_mask  # type: ignore
-from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
-from google.rpc import status_pb2 as status  # type: ignore
-
+from google.protobuf import field_mask_pb2  # type: ignore
+from google.protobuf import timestamp_pb2  # type: ignore
+from google.rpc import status_pb2  # type: ignore
 from .transports.base import ReservationServiceTransport, DEFAULT_CLIENT_INFO
 from .transports.grpc import ReservationServiceGrpcTransport
 from .transports.grpc_asyncio import ReservationServiceGrpcAsyncIOTransport
@@ -311,7 +308,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
     def __init__(
         self,
         *,
-        credentials: Optional[credentials.Credentials] = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, ReservationServiceTransport, None] = None,
         client_options: Optional[client_options_lib.ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
@@ -461,7 +458,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``reservation_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -490,10 +486,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, gcbr_reservation.CreateReservationRequest):
             request = gcbr_reservation.CreateReservationRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if reservation is not None:
@@ -540,7 +534,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -572,10 +565,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.ListReservationsRequest):
             request = reservation.ListReservationsRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
 
@@ -624,7 +615,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -653,10 +643,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.GetReservationRequest):
             request = reservation.GetReservationRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -701,7 +689,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -724,10 +711,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.DeleteReservationRequest):
             request = reservation.DeleteReservationRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -751,7 +736,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         request: gcbr_reservation.UpdateReservationRequest = None,
         *,
         reservation: gcbr_reservation.Reservation = None,
-        update_mask: field_mask.FieldMask = None,
+        update_mask: field_mask_pb2.FieldMask = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
@@ -774,7 +759,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -803,10 +787,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, gcbr_reservation.UpdateReservationRequest):
             request = gcbr_reservation.UpdateReservationRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if reservation is not None:
                 request.reservation = reservation
             if update_mask is not None:
@@ -860,7 +842,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``capacity_commitment`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -901,10 +882,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.CreateCapacityCommitmentRequest):
             request = reservation.CreateCapacityCommitmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if capacity_commitment is not None:
@@ -951,7 +930,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -983,10 +961,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.ListCapacityCommitmentsRequest):
             request = reservation.ListCapacityCommitmentsRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
 
@@ -1037,7 +1013,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1078,10 +1053,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.GetCapacityCommitmentRequest):
             request = reservation.GetCapacityCommitmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -1126,7 +1099,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1149,10 +1121,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.DeleteCapacityCommitmentRequest):
             request = reservation.DeleteCapacityCommitmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -1178,7 +1148,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         request: reservation.UpdateCapacityCommitmentRequest = None,
         *,
         capacity_commitment: reservation.CapacityCommitment = None,
-        update_mask: field_mask.FieldMask = None,
+        update_mask: field_mask_pb2.FieldMask = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
@@ -1210,7 +1180,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1251,10 +1220,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.UpdateCapacityCommitmentRequest):
             request = reservation.UpdateCapacityCommitmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if capacity_commitment is not None:
                 request.capacity_commitment = capacity_commitment
             if update_mask is not None:
@@ -1318,7 +1285,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``slot_count`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1347,10 +1313,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.SplitCapacityCommitmentRequest):
             request = reservation.SplitCapacityCommitmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
             if slot_count is not None:
@@ -1418,7 +1382,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``capacity_commitment_ids`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1459,10 +1422,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.MergeCapacityCommitmentsRequest):
             request = reservation.MergeCapacityCommitmentsRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if capacity_commitment_ids is not None:
@@ -1548,7 +1509,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``assignment`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1578,10 +1538,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.CreateAssignmentRequest):
             request = reservation.CreateAssignmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if assignment is not None:
@@ -1651,7 +1609,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``parent`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1683,10 +1640,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.ListAssignmentsRequest):
             request = reservation.ListAssignmentsRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
 
@@ -1751,7 +1706,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1774,10 +1728,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.DeleteAssignmentRequest):
             request = reservation.DeleteAssignmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -1859,7 +1811,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``query`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1891,10 +1842,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.SearchAssignmentsRequest):
             request = reservation.SearchAssignmentsRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if parent is not None:
                 request.parent = parent
             if query is not None:
@@ -1962,7 +1911,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``destination_id`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -1992,10 +1940,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.MoveAssignmentRequest):
             request = reservation.MoveAssignmentRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
             if destination_id is not None:
@@ -2040,7 +1986,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -2067,10 +2012,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.GetBiReservationRequest):
             request = reservation.GetBiReservationRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if name is not None:
                 request.name = name
 
@@ -2095,7 +2038,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         request: reservation.UpdateBiReservationRequest = None,
         *,
         bi_reservation: reservation.BiReservation = None,
-        update_mask: field_mask.FieldMask = None,
+        update_mask: field_mask_pb2.FieldMask = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
@@ -2125,7 +2068,6 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
                 This corresponds to the ``update_mask`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-
             retry (google.api_core.retry.Retry): Designation of what errors, if any,
                 should be retried.
             timeout (float): The timeout for this request.
@@ -2152,10 +2094,8 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
         # there are no flattened fields.
         if not isinstance(request, reservation.UpdateBiReservationRequest):
             request = reservation.UpdateBiReservationRequest(request)
-
             # If we have keyword arguments corresponding to fields on the
             # request, apply these.
-
             if bi_reservation is not None:
                 request.bi_reservation = bi_reservation
             if update_mask is not None:
