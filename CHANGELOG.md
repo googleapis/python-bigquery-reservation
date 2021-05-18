@@ -1,5 +1,17 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/googleapis/python-bigquery-reservation/compare/v1.1.0...v1.1.1) (2021-05-18)
+
+
+### Bug Fixes
+
+* require google-api-core >= 1.22.2 ([#90](https://www.github.com/googleapis/python-bigquery-reservation/issues/90)) ([3f0fff7](https://www.github.com/googleapis/python-bigquery-reservation/commit/3f0fff779d880df0648b7bcf59df01c4cacd4ca3))
+
+
+### Documentation
+
+* Update the README to reflect that this library is GA ([#112](https://www.github.com/googleapis/python-bigquery-reservation/issues/112)) ([7bca7a9](https://www.github.com/googleapis/python-bigquery-reservation/commit/7bca7a9b6d73d8c8ee522c8ac930192fad49da57))
+
 ## [1.1.0](https://www.github.com/googleapis/python-bigquery-reservation/compare/v1.0.1...v1.1.0) (2021-03-09)
 
 
