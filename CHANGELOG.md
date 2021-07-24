@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://www.github.com/googleapis/python-bigquery-reservation/compare/v1.2.1...v1.3.0) (2021-07-24)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#132](https://www.github.com/googleapis/python-bigquery-reservation/issues/132)) ([c59d238](https://www.github.com/googleapis/python-bigquery-reservation/commit/c59d2383413ef5c57d72877d76514853f6271b00))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#138](https://www.github.com/googleapis/python-bigquery-reservation/issues/138)) ([1d3f927](https://www.github.com/googleapis/python-bigquery-reservation/commit/1d3f927b12268c07e724ed44f1b3373a7c64e999))
+
 ### [1.2.1](https://www.github.com/googleapis/python-bigquery-reservation/compare/v1.2.0...v1.2.1) (2021-07-20)
 
 
