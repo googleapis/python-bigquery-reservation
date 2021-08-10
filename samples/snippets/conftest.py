@@ -15,6 +15,7 @@
 import os
 
 from google.cloud.bigquery_reservation_v1.services import reservation_service
+from google.cloud.bigquery_reservation_v1.types import reservation as reservation_types
 import pytest
 
 
@@ -38,3 +39,15 @@ def location_path(project_id: str, location: str) -> str:
     return reservation_service.ReservationServiceClient.common_location_path(
         project_id, location
     )
+
+
+@pytest.fixture(scope="session", autouse=True)
+def capacity_commitment(location_path: str, reservation_client: reservation_service.ReservationServiceClient) -> reservation_types.CapacityCommitment:
+    # TODO(b/196082966): If custom names or creation date property are added,
+    # do pre-test cleanup of past commitments.
+    commitment = reservation_types.CapacityCommitment()
+    commitment.slot_count = 100
+    commitment.plan = reservation_types.CapacityCommitment.CommitmentPlan.FLEX
+    commitment = reservation_client.create_capacity_commitment(parent=location_path, capacity_commitment=commitment)
+    yield commitment
+    reservation_client.delete_capacity_commitment(name=commitment.name)
