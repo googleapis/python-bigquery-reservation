@@ -18,7 +18,6 @@ def delete_reservation(project_id: str, location: str, reservation_id: str) -> N
     original_location = location
     original_reservation_id = reservation_id
 
-    # [START bigqueryreservation_reservation_update]
     # [START bigqueryreservation_reservation_delete]
     # TODO(developer): Set project_id to the project ID containing the
     # reservation.
@@ -47,4 +46,4 @@ def delete_reservation(project_id: str, location: str, reservation_id: str) -> N
     reservation_client.delete_reservation(name=reservation_name)
 
     print(f"Deleted reservation: {reservation_name}")
-    # [START bigqueryreservation_reservation_delete]
+    # [END bigqueryreservation_reservation_delete]
