@@ -12,8 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from google.cloud.bigquery_reservation_v1.types import reservation as reservation_types
 
-def update_reservation(project_id, location, reservation_id, slot_capacity):
+
+def update_reservation(
+    project_id: str, location: str, reservation_id: str, slot_capacity: str
+) -> reservation_types.Reservation:
     original_project_id = project_id
     original_location = location
     original_reservation_id = reservation_id

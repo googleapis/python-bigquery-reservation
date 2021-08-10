@@ -13,7 +13,7 @@
 # limitations under the License.
 
 
-def delete_reservation(project_id: str, location: str, reservation_id: str):
+def delete_reservation(project_id: str, location: str, reservation_id: str) -> None:
     original_project_id = project_id
     original_location = location
     original_reservation_id = reservation_id
