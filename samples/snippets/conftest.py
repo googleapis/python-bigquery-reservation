@@ -12,7 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
 import os
+import time
 
 from google.cloud.bigquery_reservation_v1.services import reservation_service
 from google.cloud.bigquery_reservation_v1.types import reservation as reservation_types
@@ -50,4 +52,9 @@ def capacity_commitment(location_path: str, reservation_client: reservation_serv
     commitment.plan = reservation_types.CapacityCommitment.CommitmentPlan.FLEX
     commitment = reservation_client.create_capacity_commitment(parent=location_path, capacity_commitment=commitment)
     yield commitment
+    # Commitments can only be removed after 1 minute.
+    now = datetime.datetime.now(datetime.timezone.utc)
+    delta = commitment.commitment_end_time - now
+    sleep_seconds = max(0, delta.total_seconds()) + 5
+    time.sleep(sleep_seconds)
     reservation_client.delete_capacity_commitment(name=commitment.name)
