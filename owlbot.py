@@ -29,8 +29,10 @@ default_version = "v1"
 for library in s.get_staging_dirs(default_version):
     s.replace(
         [
-            library / "google/cloud/bigquery_reservation_v1/services/reservation_service/client.py",
-            library / "google/cloud/bigquery_reservation_v1/services/reservation_service/async_client.py",
+            library
+            / "google/cloud/bigquery_reservation_v1/services/reservation_service/client.py",
+            library
+            / "google/cloud/bigquery_reservation_v1/services/reservation_service/async_client.py",
         ],
         "assignee=organizations/456``",
         "assignee=organizations/456``\n",
@@ -64,9 +66,7 @@ s.replace(
 )
 
 s.replace(
-    "CONTRIBUTING.rst",
-    "git merge upstream/master",
-    "git merge upstream/main",
+    "CONTRIBUTING.rst", "git merge upstream/master", "git merge upstream/main",
 )
 
 s.replace(
@@ -80,27 +80,19 @@ s.replace(
 )
 
 s.replace(
-    "CONTRIBUTING.rst",
-    "blob/master/CONTRIBUTING.rst",
-    "blob/main/CONTRIBUTING.rst",
+    "CONTRIBUTING.rst", "blob/master/CONTRIBUTING.rst", "blob/main/CONTRIBUTING.rst",
 )
 
 s.replace(
-    "CONTRIBUTING.rst",
-    "blob/master/noxfile.py",
-    "blob/main/noxfile.py",
+    "CONTRIBUTING.rst", "blob/master/noxfile.py", "blob/main/noxfile.py",
 )
 
 s.replace(
-    "docs/conf.py",
-    "master_doc",
-    "root_doc",
+    "docs/conf.py", "master_doc", "root_doc",
 )
 
 s.replace(
-    "docs/conf.py",
-    "# The master toctree document.",
-    "# The root toctree document.",
+    "docs/conf.py", "# The master toctree document.", "# The root toctree document.",
 )
 
 # ----------------------------------------------------------------------------
