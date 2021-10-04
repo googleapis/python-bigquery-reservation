@@ -12,5 +12,5 @@
     "api_id": "bigqueryreservation.googleapis.com",
     "requires_billing": true,
     "codeowner_team": "@googleapis/api-bigquery",
-    "default_version": ""
+    "default_version": "v1"
 }
