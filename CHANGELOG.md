@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.2](https://www.github.com/googleapis/python-bigquery-reservation/compare/v1.3.1...v1.3.2) (2021-10-07)
+
+
+### Bug Fixes
+
+* improper types in pagers generation ([ae65c70](https://www.github.com/googleapis/python-bigquery-reservation/commit/ae65c70bd91602ccb851167d27b4161ebd6c3bb3))
+
 ### [1.3.1](https://www.github.com/googleapis/python-bigquery-reservation/compare/v1.3.0...v1.3.1) (2021-09-24)
 
 
