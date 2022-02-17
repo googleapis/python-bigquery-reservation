@@ -25,9 +25,12 @@ import pytest
 def cleanup_commitments(
     reservation_client: reservation_service.ReservationServiceClient, location_path: str
 ) -> None:
-    for commitment in reservation_client.list_capacity_commitments(parent=location_path):
+    for commitment in reservation_client.list_capacity_commitments(
+        parent=location_path
+    ):
         if (
-            commitment.commitment_start_time < datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=1)
+            commitment.commitment_start_time
+            < datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=1)
             or commitment.state == reservation_types.CapacityCommitment.State.FAILED
         ):
             reservation_client.delete_capacity_commitment(name=commitment.name)
