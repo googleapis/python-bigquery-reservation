@@ -28,10 +28,10 @@ def cleanup_commitments(
     for commitment in reservation_client.list_capacity_commitments(
         parent=location_path
     ):
-        if (
-            commitment.commitment_start_time
+        if commitment.state == reservation_types.CapacityCommitment.State.FAILED or (
+            commitment.commitment_start_time is not None
+            and commitment.commitment_start_time
             < datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=1)
-            or commitment.state == reservation_types.CapacityCommitment.State.FAILED
         ):
             reservation_client.delete_capacity_commitment(name=commitment.name)
 
