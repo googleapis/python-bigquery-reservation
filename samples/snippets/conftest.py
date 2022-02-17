@@ -21,7 +21,7 @@ from google.cloud.bigquery_reservation_v1.types import reservation as reservatio
 import pytest
 
 
-@pytest.fixture(scope="module", autouse=True)
+@pytest.fixture(scope="session", autouse=True)
 def cleanup_commitments(
     reservation_client: reservation_service.ReservationServiceClient, location_path: str
 ) -> None:
