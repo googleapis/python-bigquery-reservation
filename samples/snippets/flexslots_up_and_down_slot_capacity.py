@@ -95,8 +95,23 @@ class BigQueryReservation():
         self._reservation_client.delete_capacity_commitment(name=commitment_id)
 
 def main():
-    BigQueryReservation().upgrade_bigquery_slot_capacity()
-    BigQueryReservation().downgrade_bigquery_slot_capacity()
+    bigquery_reservation_config = 'bigquery_reservation'
+    admin_project = 'admin_project'
+    assignee_project = 'assignee_project'
+    location = 'location'
+    reservation = 'reservation'
+    commitment_slot_count = 100
+    reservation_slot_count = 100
+    bigquery_reservation = BigQueryReservation(
+        admin_project=admin_project,
+        assignee_project=assignee_project,
+        location=location,
+        reservation=reservation,
+        commitment_slot_count=commitment_slot_count,
+        reservation_slot_count=reservation_slot_count
+    )
+    bigquery_reservation.upgrade_bigquery_slot_capacity()
+    bigquery_reservation.downgrade_bigquery_slot_capacity()
 
 if __name__ == "__main__":
         main()
