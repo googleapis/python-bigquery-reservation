@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.4.1](https://github.com/googleapis/python-bigquery-reservation/compare/v0.4.0...v0.4.1) (2022-04-06)
+
+
+### Bug Fixes
+
+* **deps:** require google-api-core >= 1.31.5, >= 2.3.2 on v0 release ([#237](https://github.com/googleapis/python-bigquery-reservation/issues/237)) ([70d8de5](https://github.com/googleapis/python-bigquery-reservation/commit/70d8de51015ee686815a3c97dd0549f060c8dac1))
+
 ## [0.4.0](https://www.github.com/googleapis/python-bigquery-reservation/compare/v0.3.0...v0.4.0) (2020-10-28)
 
 
