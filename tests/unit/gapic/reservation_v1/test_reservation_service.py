@@ -393,7 +393,9 @@ def test_reservation_service_client_client_options_scopes(
     client_class, transport_class, transport_name
 ):
     # Check the case scopes are provided.
-    options = client_options.ClientOptions(scopes=["1", "2"],)
+    options = client_options.ClientOptions(
+        scopes=["1", "2"],
+    )
     with mock.patch.object(transport_class, "__init__") as patched:
         patched.return_value = None
         client = client_class(client_options=options)
@@ -461,7 +463,8 @@ def test_create_reservation(
     transport: str = "grpc", request_type=gcbr_reservation.CreateReservationRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -474,7 +477,9 @@ def test_create_reservation(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = gcbr_reservation.Reservation(
-            name="name_value", slot_capacity=1391, ignore_idle_slots=True,
+            name="name_value",
+            slot_capacity=1391,
+            ignore_idle_slots=True,
         )
 
         response = client.create_reservation(request)
@@ -506,7 +511,8 @@ async def test_create_reservation_async(
     request_type=gcbr_reservation.CreateReservationRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -520,7 +526,9 @@ async def test_create_reservation_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             gcbr_reservation.Reservation(
-                name="name_value", slot_capacity=1391, ignore_idle_slots=True,
+                name="name_value",
+                slot_capacity=1391,
+                ignore_idle_slots=True,
             )
         )
 
@@ -548,7 +556,9 @@ async def test_create_reservation_async_from_dict():
 
 
 def test_create_reservation_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -570,7 +580,10 @@ def test_create_reservation_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -601,11 +614,16 @@ async def test_create_reservation_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_reservation_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -635,7 +653,9 @@ def test_create_reservation_flattened():
 
 
 def test_create_reservation_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -705,7 +725,8 @@ def test_list_reservations(
     transport: str = "grpc", request_type=reservation.ListReservationsRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -745,7 +766,8 @@ async def test_list_reservations_async(
     transport: str = "grpc_asyncio", request_type=reservation.ListReservationsRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -783,7 +805,9 @@ async def test_list_reservations_async_from_dict():
 
 
 def test_list_reservations_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -805,7 +829,10 @@ def test_list_reservations_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -836,11 +863,16 @@ async def test_list_reservations_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_reservations_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -851,7 +883,9 @@ def test_list_reservations_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_reservations(parent="parent_value",)
+        client.list_reservations(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -862,13 +896,16 @@ def test_list_reservations_flattened():
 
 
 def test_list_reservations_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_reservations(
-            reservation.ListReservationsRequest(), parent="parent_value",
+            reservation.ListReservationsRequest(),
+            parent="parent_value",
         )
 
 
@@ -890,7 +927,9 @@ async def test_list_reservations_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_reservations(parent="parent_value",)
+        response = await client.list_reservations(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -910,12 +949,15 @@ async def test_list_reservations_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_reservations(
-            reservation.ListReservationsRequest(), parent="parent_value",
+            reservation.ListReservationsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_reservations_pager():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -932,13 +974,20 @@ def test_list_reservations_pager():
                 next_page_token="abc",
             ),
             reservation.ListReservationsResponse(
-                reservations=[], next_page_token="def",
+                reservations=[],
+                next_page_token="def",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(),], next_page_token="ghi",
+                reservations=[
+                    reservation.Reservation(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(), reservation.Reservation(),],
+                reservations=[
+                    reservation.Reservation(),
+                    reservation.Reservation(),
+                ],
             ),
             RuntimeError,
         )
@@ -957,7 +1006,9 @@ def test_list_reservations_pager():
 
 
 def test_list_reservations_pages():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -974,13 +1025,20 @@ def test_list_reservations_pages():
                 next_page_token="abc",
             ),
             reservation.ListReservationsResponse(
-                reservations=[], next_page_token="def",
+                reservations=[],
+                next_page_token="def",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(),], next_page_token="ghi",
+                reservations=[
+                    reservation.Reservation(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(), reservation.Reservation(),],
+                reservations=[
+                    reservation.Reservation(),
+                    reservation.Reservation(),
+                ],
             ),
             RuntimeError,
         )
@@ -1012,17 +1070,26 @@ async def test_list_reservations_async_pager():
                 next_page_token="abc",
             ),
             reservation.ListReservationsResponse(
-                reservations=[], next_page_token="def",
+                reservations=[],
+                next_page_token="def",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(),], next_page_token="ghi",
+                reservations=[
+                    reservation.Reservation(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(), reservation.Reservation(),],
+                reservations=[
+                    reservation.Reservation(),
+                    reservation.Reservation(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_reservations(request={},)
+        async_pager = await client.list_reservations(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -1055,13 +1122,20 @@ async def test_list_reservations_async_pages():
                 next_page_token="abc",
             ),
             reservation.ListReservationsResponse(
-                reservations=[], next_page_token="def",
+                reservations=[],
+                next_page_token="def",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(),], next_page_token="ghi",
+                reservations=[
+                    reservation.Reservation(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.ListReservationsResponse(
-                reservations=[reservation.Reservation(), reservation.Reservation(),],
+                reservations=[
+                    reservation.Reservation(),
+                    reservation.Reservation(),
+                ],
             ),
             RuntimeError,
         )
@@ -1076,7 +1150,8 @@ def test_get_reservation(
     transport: str = "grpc", request_type=reservation.GetReservationRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1087,7 +1162,9 @@ def test_get_reservation(
     with mock.patch.object(type(client.transport.get_reservation), "__call__") as call:
         # Designate an appropriate return value for the call.
         call.return_value = reservation.Reservation(
-            name="name_value", slot_capacity=1391, ignore_idle_slots=True,
+            name="name_value",
+            slot_capacity=1391,
+            ignore_idle_slots=True,
         )
 
         response = client.get_reservation(request)
@@ -1118,7 +1195,8 @@ async def test_get_reservation_async(
     transport: str = "grpc_asyncio", request_type=reservation.GetReservationRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1130,7 +1208,9 @@ async def test_get_reservation_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             reservation.Reservation(
-                name="name_value", slot_capacity=1391, ignore_idle_slots=True,
+                name="name_value",
+                slot_capacity=1391,
+                ignore_idle_slots=True,
             )
         )
 
@@ -1158,7 +1238,9 @@ async def test_get_reservation_async_from_dict():
 
 
 def test_get_reservation_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1178,7 +1260,10 @@ def test_get_reservation_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -1207,11 +1292,16 @@ async def test_get_reservation_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_reservation_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.get_reservation), "__call__") as call:
@@ -1220,7 +1310,9 @@ def test_get_reservation_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_reservation(name="name_value",)
+        client.get_reservation(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1231,13 +1323,16 @@ def test_get_reservation_flattened():
 
 
 def test_get_reservation_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_reservation(
-            reservation.GetReservationRequest(), name="name_value",
+            reservation.GetReservationRequest(),
+            name="name_value",
         )
 
 
@@ -1257,7 +1352,9 @@ async def test_get_reservation_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_reservation(name="name_value",)
+        response = await client.get_reservation(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1277,7 +1374,8 @@ async def test_get_reservation_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_reservation(
-            reservation.GetReservationRequest(), name="name_value",
+            reservation.GetReservationRequest(),
+            name="name_value",
         )
 
 
@@ -1285,7 +1383,8 @@ def test_delete_reservation(
     transport: str = "grpc", request_type=reservation.DeleteReservationRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1320,7 +1419,8 @@ async def test_delete_reservation_async(
     transport: str = "grpc_asyncio", request_type=reservation.DeleteReservationRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1352,7 +1452,9 @@ async def test_delete_reservation_async_from_dict():
 
 
 def test_delete_reservation_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1374,7 +1476,10 @@ def test_delete_reservation_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -1403,11 +1508,16 @@ async def test_delete_reservation_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_reservation_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1418,7 +1528,9 @@ def test_delete_reservation_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_reservation(name="name_value",)
+        client.delete_reservation(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1429,13 +1541,16 @@ def test_delete_reservation_flattened():
 
 
 def test_delete_reservation_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_reservation(
-            reservation.DeleteReservationRequest(), name="name_value",
+            reservation.DeleteReservationRequest(),
+            name="name_value",
         )
 
 
@@ -1455,7 +1570,9 @@ async def test_delete_reservation_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_reservation(name="name_value",)
+        response = await client.delete_reservation(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -1475,7 +1592,8 @@ async def test_delete_reservation_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_reservation(
-            reservation.DeleteReservationRequest(), name="name_value",
+            reservation.DeleteReservationRequest(),
+            name="name_value",
         )
 
 
@@ -1483,7 +1601,8 @@ def test_update_reservation(
     transport: str = "grpc", request_type=gcbr_reservation.UpdateReservationRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1496,7 +1615,9 @@ def test_update_reservation(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = gcbr_reservation.Reservation(
-            name="name_value", slot_capacity=1391, ignore_idle_slots=True,
+            name="name_value",
+            slot_capacity=1391,
+            ignore_idle_slots=True,
         )
 
         response = client.update_reservation(request)
@@ -1528,7 +1649,8 @@ async def test_update_reservation_async(
     request_type=gcbr_reservation.UpdateReservationRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1542,7 +1664,9 @@ async def test_update_reservation_async(
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
             gcbr_reservation.Reservation(
-                name="name_value", slot_capacity=1391, ignore_idle_slots=True,
+                name="name_value",
+                slot_capacity=1391,
+                ignore_idle_slots=True,
             )
         )
 
@@ -1570,7 +1694,9 @@ async def test_update_reservation_async_from_dict():
 
 
 def test_update_reservation_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1592,9 +1718,10 @@ def test_update_reservation_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "reservation.name=reservation.name/value",) in kw[
-        "metadata"
-    ]
+    assert (
+        "x-goog-request-params",
+        "reservation.name=reservation.name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -1625,13 +1752,16 @@ async def test_update_reservation_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "reservation.name=reservation.name/value",) in kw[
-        "metadata"
-    ]
+    assert (
+        "x-goog-request-params",
+        "reservation.name=reservation.name/value",
+    ) in kw["metadata"]
 
 
 def test_update_reservation_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1658,7 +1788,9 @@ def test_update_reservation_flattened():
 
 
 def test_update_reservation_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1723,7 +1855,8 @@ def test_create_capacity_commitment(
     transport: str = "grpc", request_type=reservation.CreateCapacityCommitmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1776,7 +1909,8 @@ async def test_create_capacity_commitment_async(
     request_type=reservation.CreateCapacityCommitmentRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -1826,7 +1960,9 @@ async def test_create_capacity_commitment_async_from_dict():
 
 
 def test_create_capacity_commitment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -1848,7 +1984,10 @@ def test_create_capacity_commitment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -1879,11 +2018,16 @@ async def test_create_capacity_commitment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_capacity_commitment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -1912,7 +2056,9 @@ def test_create_capacity_commitment_flattened():
 
 
 def test_create_capacity_commitment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -1979,7 +2125,8 @@ def test_list_capacity_commitments(
     transport: str = "grpc", request_type=reservation.ListCapacityCommitmentsRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2020,7 +2167,8 @@ async def test_list_capacity_commitments_async(
     request_type=reservation.ListCapacityCommitmentsRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2058,7 +2206,9 @@ async def test_list_capacity_commitments_async_from_dict():
 
 
 def test_list_capacity_commitments_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2080,7 +2230,10 @@ def test_list_capacity_commitments_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2111,11 +2264,16 @@ async def test_list_capacity_commitments_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_capacity_commitments_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2126,7 +2284,9 @@ def test_list_capacity_commitments_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_capacity_commitments(parent="parent_value",)
+        client.list_capacity_commitments(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2137,13 +2297,16 @@ def test_list_capacity_commitments_flattened():
 
 
 def test_list_capacity_commitments_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_capacity_commitments(
-            reservation.ListCapacityCommitmentsRequest(), parent="parent_value",
+            reservation.ListCapacityCommitmentsRequest(),
+            parent="parent_value",
         )
 
 
@@ -2165,7 +2328,9 @@ async def test_list_capacity_commitments_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_capacity_commitments(parent="parent_value",)
+        response = await client.list_capacity_commitments(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2185,12 +2350,15 @@ async def test_list_capacity_commitments_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_capacity_commitments(
-            reservation.ListCapacityCommitmentsRequest(), parent="parent_value",
+            reservation.ListCapacityCommitmentsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_capacity_commitments_pager():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2207,10 +2375,13 @@ def test_list_capacity_commitments_pager():
                 next_page_token="abc",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[], next_page_token="def",
+                capacity_commitments=[],
+                next_page_token="def",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[reservation.CapacityCommitment(),],
+                capacity_commitments=[
+                    reservation.CapacityCommitment(),
+                ],
                 next_page_token="ghi",
             ),
             reservation.ListCapacityCommitmentsResponse(
@@ -2236,7 +2407,9 @@ def test_list_capacity_commitments_pager():
 
 
 def test_list_capacity_commitments_pages():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2253,10 +2426,13 @@ def test_list_capacity_commitments_pages():
                 next_page_token="abc",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[], next_page_token="def",
+                capacity_commitments=[],
+                next_page_token="def",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[reservation.CapacityCommitment(),],
+                capacity_commitments=[
+                    reservation.CapacityCommitment(),
+                ],
                 next_page_token="ghi",
             ),
             reservation.ListCapacityCommitmentsResponse(
@@ -2295,10 +2471,13 @@ async def test_list_capacity_commitments_async_pager():
                 next_page_token="abc",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[], next_page_token="def",
+                capacity_commitments=[],
+                next_page_token="def",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[reservation.CapacityCommitment(),],
+                capacity_commitments=[
+                    reservation.CapacityCommitment(),
+                ],
                 next_page_token="ghi",
             ),
             reservation.ListCapacityCommitmentsResponse(
@@ -2309,7 +2488,9 @@ async def test_list_capacity_commitments_async_pager():
             ),
             RuntimeError,
         )
-        async_pager = await client.list_capacity_commitments(request={},)
+        async_pager = await client.list_capacity_commitments(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -2342,10 +2523,13 @@ async def test_list_capacity_commitments_async_pages():
                 next_page_token="abc",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[], next_page_token="def",
+                capacity_commitments=[],
+                next_page_token="def",
             ),
             reservation.ListCapacityCommitmentsResponse(
-                capacity_commitments=[reservation.CapacityCommitment(),],
+                capacity_commitments=[
+                    reservation.CapacityCommitment(),
+                ],
                 next_page_token="ghi",
             ),
             reservation.ListCapacityCommitmentsResponse(
@@ -2367,7 +2551,8 @@ def test_get_capacity_commitment(
     transport: str = "grpc", request_type=reservation.GetCapacityCommitmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2420,7 +2605,8 @@ async def test_get_capacity_commitment_async(
     request_type=reservation.GetCapacityCommitmentRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2470,7 +2656,9 @@ async def test_get_capacity_commitment_async_from_dict():
 
 
 def test_get_capacity_commitment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2492,7 +2680,10 @@ def test_get_capacity_commitment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2523,11 +2714,16 @@ async def test_get_capacity_commitment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_capacity_commitment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2538,7 +2734,9 @@ def test_get_capacity_commitment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_capacity_commitment(name="name_value",)
+        client.get_capacity_commitment(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2549,13 +2747,16 @@ def test_get_capacity_commitment_flattened():
 
 
 def test_get_capacity_commitment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_capacity_commitment(
-            reservation.GetCapacityCommitmentRequest(), name="name_value",
+            reservation.GetCapacityCommitmentRequest(),
+            name="name_value",
         )
 
 
@@ -2577,7 +2778,9 @@ async def test_get_capacity_commitment_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_capacity_commitment(name="name_value",)
+        response = await client.get_capacity_commitment(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2597,7 +2800,8 @@ async def test_get_capacity_commitment_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_capacity_commitment(
-            reservation.GetCapacityCommitmentRequest(), name="name_value",
+            reservation.GetCapacityCommitmentRequest(),
+            name="name_value",
         )
 
 
@@ -2605,7 +2809,8 @@ def test_delete_capacity_commitment(
     transport: str = "grpc", request_type=reservation.DeleteCapacityCommitmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2641,7 +2846,8 @@ async def test_delete_capacity_commitment_async(
     request_type=reservation.DeleteCapacityCommitmentRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2673,7 +2879,9 @@ async def test_delete_capacity_commitment_async_from_dict():
 
 
 def test_delete_capacity_commitment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2695,7 +2903,10 @@ def test_delete_capacity_commitment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -2724,11 +2935,16 @@ async def test_delete_capacity_commitment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_capacity_commitment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2739,7 +2955,9 @@ def test_delete_capacity_commitment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_capacity_commitment(name="name_value",)
+        client.delete_capacity_commitment(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2750,13 +2968,16 @@ def test_delete_capacity_commitment_flattened():
 
 
 def test_delete_capacity_commitment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_capacity_commitment(
-            reservation.DeleteCapacityCommitmentRequest(), name="name_value",
+            reservation.DeleteCapacityCommitmentRequest(),
+            name="name_value",
         )
 
 
@@ -2776,7 +2997,9 @@ async def test_delete_capacity_commitment_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_capacity_commitment(name="name_value",)
+        response = await client.delete_capacity_commitment(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -2796,7 +3019,8 @@ async def test_delete_capacity_commitment_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_capacity_commitment(
-            reservation.DeleteCapacityCommitmentRequest(), name="name_value",
+            reservation.DeleteCapacityCommitmentRequest(),
+            name="name_value",
         )
 
 
@@ -2804,7 +3028,8 @@ def test_update_capacity_commitment(
     transport: str = "grpc", request_type=reservation.UpdateCapacityCommitmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2857,7 +3082,8 @@ async def test_update_capacity_commitment_async(
     request_type=reservation.UpdateCapacityCommitmentRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -2907,7 +3133,9 @@ async def test_update_capacity_commitment_async_from_dict():
 
 
 def test_update_capacity_commitment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -2970,7 +3198,9 @@ async def test_update_capacity_commitment_field_headers_async():
 
 
 def test_update_capacity_commitment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -2999,7 +3229,9 @@ def test_update_capacity_commitment_flattened():
 
 
 def test_update_capacity_commitment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3066,7 +3298,8 @@ def test_split_capacity_commitment(
     transport: str = "grpc", request_type=reservation.SplitCapacityCommitmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3103,7 +3336,8 @@ async def test_split_capacity_commitment_async(
     request_type=reservation.SplitCapacityCommitmentRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3137,7 +3371,9 @@ async def test_split_capacity_commitment_async_from_dict():
 
 
 def test_split_capacity_commitment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3159,7 +3395,10 @@ def test_split_capacity_commitment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3190,11 +3429,16 @@ async def test_split_capacity_commitment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_split_capacity_commitment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3206,7 +3450,8 @@ def test_split_capacity_commitment_flattened():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.split_capacity_commitment(
-            name="name_value", slot_count=1098,
+            name="name_value",
+            slot_count=1098,
         )
 
         # Establish that the underlying call was made with the expected
@@ -3220,7 +3465,9 @@ def test_split_capacity_commitment_flattened():
 
 
 def test_split_capacity_commitment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3251,7 +3498,8 @@ async def test_split_capacity_commitment_flattened_async():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         response = await client.split_capacity_commitment(
-            name="name_value", slot_count=1098,
+            name="name_value",
+            slot_count=1098,
         )
 
         # Establish that the underlying call was made with the expected
@@ -3284,7 +3532,8 @@ def test_merge_capacity_commitments(
     transport: str = "grpc", request_type=reservation.MergeCapacityCommitmentsRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3337,7 +3586,8 @@ async def test_merge_capacity_commitments_async(
     request_type=reservation.MergeCapacityCommitmentsRequest,
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3387,7 +3637,9 @@ async def test_merge_capacity_commitments_async_from_dict():
 
 
 def test_merge_capacity_commitments_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3409,7 +3661,10 @@ def test_merge_capacity_commitments_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3440,11 +3695,16 @@ async def test_merge_capacity_commitments_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_merge_capacity_commitments_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3471,7 +3731,9 @@ def test_merge_capacity_commitments_flattened():
 
 
 def test_merge_capacity_commitments_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3536,7 +3798,8 @@ def test_create_assignment(
     transport: str = "grpc", request_type=reservation.CreateAssignmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3585,7 +3848,8 @@ async def test_create_assignment_async(
     transport: str = "grpc_asyncio", request_type=reservation.CreateAssignmentRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3632,7 +3896,9 @@ async def test_create_assignment_async_from_dict():
 
 
 def test_create_assignment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3654,7 +3920,10 @@ def test_create_assignment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3685,11 +3954,16 @@ async def test_create_assignment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_create_assignment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -3701,7 +3975,8 @@ def test_create_assignment_flattened():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.create_assignment(
-            parent="parent_value", assignment=reservation.Assignment(name="name_value"),
+            parent="parent_value",
+            assignment=reservation.Assignment(name="name_value"),
         )
 
         # Establish that the underlying call was made with the expected
@@ -3715,7 +3990,9 @@ def test_create_assignment_flattened():
 
 
 def test_create_assignment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -3746,7 +4023,8 @@ async def test_create_assignment_flattened_async():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         response = await client.create_assignment(
-            parent="parent_value", assignment=reservation.Assignment(name="name_value"),
+            parent="parent_value",
+            assignment=reservation.Assignment(name="name_value"),
         )
 
         # Establish that the underlying call was made with the expected
@@ -3779,7 +4057,8 @@ def test_list_assignments(
     transport: str = "grpc", request_type=reservation.ListAssignmentsRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3817,7 +4096,8 @@ async def test_list_assignments_async(
     transport: str = "grpc_asyncio", request_type=reservation.ListAssignmentsRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -3853,7 +4133,9 @@ async def test_list_assignments_async_from_dict():
 
 
 def test_list_assignments_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -3873,7 +4155,10 @@ def test_list_assignments_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -3902,11 +4187,16 @@ async def test_list_assignments_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_list_assignments_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_assignments), "__call__") as call:
@@ -3915,7 +4205,9 @@ def test_list_assignments_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.list_assignments(parent="parent_value",)
+        client.list_assignments(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3926,13 +4218,16 @@ def test_list_assignments_flattened():
 
 
 def test_list_assignments_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.list_assignments(
-            reservation.ListAssignmentsRequest(), parent="parent_value",
+            reservation.ListAssignmentsRequest(),
+            parent="parent_value",
         )
 
 
@@ -3952,7 +4247,9 @@ async def test_list_assignments_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.list_assignments(parent="parent_value",)
+        response = await client.list_assignments(
+            parent="parent_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -3972,12 +4269,15 @@ async def test_list_assignments_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.list_assignments(
-            reservation.ListAssignmentsRequest(), parent="parent_value",
+            reservation.ListAssignmentsRequest(),
+            parent="parent_value",
         )
 
 
 def test_list_assignments_pager():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_assignments), "__call__") as call:
@@ -3991,12 +4291,21 @@ def test_list_assignments_pager():
                 ],
                 next_page_token="abc",
             ),
-            reservation.ListAssignmentsResponse(assignments=[], next_page_token="def",),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
+            ),
+            reservation.ListAssignmentsResponse(
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
@@ -4015,7 +4324,9 @@ def test_list_assignments_pager():
 
 
 def test_list_assignments_pages():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.list_assignments), "__call__") as call:
@@ -4029,12 +4340,21 @@ def test_list_assignments_pages():
                 ],
                 next_page_token="abc",
             ),
-            reservation.ListAssignmentsResponse(assignments=[], next_page_token="def",),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
+            ),
+            reservation.ListAssignmentsResponse(
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
@@ -4063,16 +4383,27 @@ async def test_list_assignments_async_pager():
                 ],
                 next_page_token="abc",
             ),
-            reservation.ListAssignmentsResponse(assignments=[], next_page_token="def",),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
+            ),
+            reservation.ListAssignmentsResponse(
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.list_assignments(request={},)
+        async_pager = await client.list_assignments(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -4102,12 +4433,21 @@ async def test_list_assignments_async_pages():
                 ],
                 next_page_token="abc",
             ),
-            reservation.ListAssignmentsResponse(assignments=[], next_page_token="def",),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.ListAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
+            ),
+            reservation.ListAssignmentsResponse(
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
@@ -4122,7 +4462,8 @@ def test_delete_assignment(
     transport: str = "grpc", request_type=reservation.DeleteAssignmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4157,7 +4498,8 @@ async def test_delete_assignment_async(
     transport: str = "grpc_asyncio", request_type=reservation.DeleteAssignmentRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4189,7 +4531,9 @@ async def test_delete_assignment_async_from_dict():
 
 
 def test_delete_assignment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4211,7 +4555,10 @@ def test_delete_assignment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -4240,11 +4587,16 @@ async def test_delete_assignment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_delete_assignment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4255,7 +4607,9 @@ def test_delete_assignment_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.delete_assignment(name="name_value",)
+        client.delete_assignment(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4266,13 +4620,16 @@ def test_delete_assignment_flattened():
 
 
 def test_delete_assignment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.delete_assignment(
-            reservation.DeleteAssignmentRequest(), name="name_value",
+            reservation.DeleteAssignmentRequest(),
+            name="name_value",
         )
 
 
@@ -4292,7 +4649,9 @@ async def test_delete_assignment_flattened_async():
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(None)
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.delete_assignment(name="name_value",)
+        response = await client.delete_assignment(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -4312,7 +4671,8 @@ async def test_delete_assignment_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.delete_assignment(
-            reservation.DeleteAssignmentRequest(), name="name_value",
+            reservation.DeleteAssignmentRequest(),
+            name="name_value",
         )
 
 
@@ -4320,7 +4680,8 @@ def test_search_assignments(
     transport: str = "grpc", request_type=reservation.SearchAssignmentsRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4360,7 +4721,8 @@ async def test_search_assignments_async(
     transport: str = "grpc_asyncio", request_type=reservation.SearchAssignmentsRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4398,7 +4760,9 @@ async def test_search_assignments_async_from_dict():
 
 
 def test_search_assignments_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4420,7 +4784,10 @@ def test_search_assignments_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -4451,11 +4818,16 @@ async def test_search_assignments_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "parent=parent/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "parent=parent/value",
+    ) in kw["metadata"]
 
 
 def test_search_assignments_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4467,7 +4839,8 @@ def test_search_assignments_flattened():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.search_assignments(
-            parent="parent_value", query="query_value",
+            parent="parent_value",
+            query="query_value",
         )
 
         # Establish that the underlying call was made with the expected
@@ -4481,7 +4854,9 @@ def test_search_assignments_flattened():
 
 
 def test_search_assignments_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -4512,7 +4887,8 @@ async def test_search_assignments_flattened_async():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         response = await client.search_assignments(
-            parent="parent_value", query="query_value",
+            parent="parent_value",
+            query="query_value",
         )
 
         # Establish that the underlying call was made with the expected
@@ -4542,7 +4918,9 @@ async def test_search_assignments_flattened_error_async():
 
 
 def test_search_assignments_pager():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4559,13 +4937,20 @@ def test_search_assignments_pager():
                 next_page_token="abc",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[], next_page_token="def",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
@@ -4584,7 +4969,9 @@ def test_search_assignments_pager():
 
 
 def test_search_assignments_pages():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials,
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -4601,13 +4988,20 @@ def test_search_assignments_pages():
                 next_page_token="abc",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[], next_page_token="def",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
@@ -4639,17 +5033,26 @@ async def test_search_assignments_async_pager():
                 next_page_token="abc",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[], next_page_token="def",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
-        async_pager = await client.search_assignments(request={},)
+        async_pager = await client.search_assignments(
+            request={},
+        )
         assert async_pager.next_page_token == "abc"
         responses = []
         async for response in async_pager:
@@ -4682,13 +5085,20 @@ async def test_search_assignments_async_pages():
                 next_page_token="abc",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[], next_page_token="def",
+                assignments=[],
+                next_page_token="def",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(),], next_page_token="ghi",
+                assignments=[
+                    reservation.Assignment(),
+                ],
+                next_page_token="ghi",
             ),
             reservation.SearchAssignmentsResponse(
-                assignments=[reservation.Assignment(), reservation.Assignment(),],
+                assignments=[
+                    reservation.Assignment(),
+                    reservation.Assignment(),
+                ],
             ),
             RuntimeError,
         )
@@ -4703,7 +5113,8 @@ def test_move_assignment(
     transport: str = "grpc", request_type=reservation.MoveAssignmentRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4750,7 +5161,8 @@ async def test_move_assignment_async(
     transport: str = "grpc_asyncio", request_type=reservation.MoveAssignmentRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4795,7 +5207,9 @@ async def test_move_assignment_async_from_dict():
 
 
 def test_move_assignment_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -4815,7 +5229,10 @@ def test_move_assignment_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -4844,11 +5261,16 @@ async def test_move_assignment_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_move_assignment_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(type(client.transport.move_assignment), "__call__") as call:
@@ -4858,7 +5280,8 @@ def test_move_assignment_flattened():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         client.move_assignment(
-            name="name_value", destination_id="destination_id_value",
+            name="name_value",
+            destination_id="destination_id_value",
         )
 
         # Establish that the underlying call was made with the expected
@@ -4872,7 +5295,9 @@ def test_move_assignment_flattened():
 
 
 def test_move_assignment_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -4901,7 +5326,8 @@ async def test_move_assignment_flattened_async():
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
         response = await client.move_assignment(
-            name="name_value", destination_id="destination_id_value",
+            name="name_value",
+            destination_id="destination_id_value",
         )
 
         # Establish that the underlying call was made with the expected
@@ -4934,7 +5360,8 @@ def test_get_bi_reservation(
     transport: str = "grpc", request_type=reservation.GetBiReservationRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4946,7 +5373,10 @@ def test_get_bi_reservation(
         type(client.transport.get_bi_reservation), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
-        call.return_value = reservation.BiReservation(name="name_value", size=443,)
+        call.return_value = reservation.BiReservation(
+            name="name_value",
+            size=443,
+        )
 
         response = client.get_bi_reservation(request)
 
@@ -4974,7 +5404,8 @@ async def test_get_bi_reservation_async(
     transport: str = "grpc_asyncio", request_type=reservation.GetBiReservationRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -4987,7 +5418,10 @@ async def test_get_bi_reservation_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            reservation.BiReservation(name="name_value", size=443,)
+            reservation.BiReservation(
+                name="name_value",
+                size=443,
+            )
         )
 
         response = await client.get_bi_reservation(request)
@@ -5012,7 +5446,9 @@ async def test_get_bi_reservation_async_from_dict():
 
 
 def test_get_bi_reservation_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5034,7 +5470,10 @@ def test_get_bi_reservation_field_headers():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 @pytest.mark.asyncio
@@ -5065,11 +5504,16 @@ async def test_get_bi_reservation_field_headers_async():
 
     # Establish that the field header was sent.
     _, _, kw = call.mock_calls[0]
-    assert ("x-goog-request-params", "name=name/value",) in kw["metadata"]
+    assert (
+        "x-goog-request-params",
+        "name=name/value",
+    ) in kw["metadata"]
 
 
 def test_get_bi_reservation_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5080,7 +5524,9 @@ def test_get_bi_reservation_flattened():
 
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        client.get_bi_reservation(name="name_value",)
+        client.get_bi_reservation(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5091,13 +5537,16 @@ def test_get_bi_reservation_flattened():
 
 
 def test_get_bi_reservation_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
     with pytest.raises(ValueError):
         client.get_bi_reservation(
-            reservation.GetBiReservationRequest(), name="name_value",
+            reservation.GetBiReservationRequest(),
+            name="name_value",
         )
 
 
@@ -5119,7 +5568,9 @@ async def test_get_bi_reservation_flattened_async():
         )
         # Call the method with a truthy value for each flattened field,
         # using the keyword arguments to the method.
-        response = await client.get_bi_reservation(name="name_value",)
+        response = await client.get_bi_reservation(
+            name="name_value",
+        )
 
         # Establish that the underlying call was made with the expected
         # request object values.
@@ -5139,7 +5590,8 @@ async def test_get_bi_reservation_flattened_error_async():
     # fields is an error.
     with pytest.raises(ValueError):
         await client.get_bi_reservation(
-            reservation.GetBiReservationRequest(), name="name_value",
+            reservation.GetBiReservationRequest(),
+            name="name_value",
         )
 
 
@@ -5147,7 +5599,8 @@ def test_update_bi_reservation(
     transport: str = "grpc", request_type=reservation.UpdateBiReservationRequest
 ):
     client = ReservationServiceClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5159,7 +5612,10 @@ def test_update_bi_reservation(
         type(client.transport.update_bi_reservation), "__call__"
     ) as call:
         # Designate an appropriate return value for the call.
-        call.return_value = reservation.BiReservation(name="name_value", size=443,)
+        call.return_value = reservation.BiReservation(
+            name="name_value",
+            size=443,
+        )
 
         response = client.update_bi_reservation(request)
 
@@ -5187,7 +5643,8 @@ async def test_update_bi_reservation_async(
     transport: str = "grpc_asyncio", request_type=reservation.UpdateBiReservationRequest
 ):
     client = ReservationServiceAsyncClient(
-        credentials=credentials.AnonymousCredentials(), transport=transport,
+        credentials=credentials.AnonymousCredentials(),
+        transport=transport,
     )
 
     # Everything is optional in proto3 as far as the runtime is concerned,
@@ -5200,7 +5657,10 @@ async def test_update_bi_reservation_async(
     ) as call:
         # Designate an appropriate return value for the call.
         call.return_value = grpc_helpers_async.FakeUnaryUnaryCall(
-            reservation.BiReservation(name="name_value", size=443,)
+            reservation.BiReservation(
+                name="name_value",
+                size=443,
+            )
         )
 
         response = await client.update_bi_reservation(request)
@@ -5225,7 +5685,9 @@ async def test_update_bi_reservation_async_from_dict():
 
 
 def test_update_bi_reservation_field_headers():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Any value that is part of the HTTP/1.1 URI should be sent as
     # a field header. Set these to a non-empty value.
@@ -5288,7 +5750,9 @@ async def test_update_bi_reservation_field_headers_async():
 
 
 def test_update_bi_reservation_flattened():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Mock the actual call within the gRPC stub, and fake the request.
     with mock.patch.object(
@@ -5315,7 +5779,9 @@ def test_update_bi_reservation_flattened():
 
 
 def test_update_bi_reservation_flattened_error():
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
 
     # Attempting to call a method with both a request object and flattened
     # fields is an error.
@@ -5383,7 +5849,8 @@ def test_credentials_transport_error():
     )
     with pytest.raises(ValueError):
         client = ReservationServiceClient(
-            credentials=credentials.AnonymousCredentials(), transport=transport,
+            credentials=credentials.AnonymousCredentials(),
+            transport=transport,
         )
 
     # It is an error to provide a credentials file and a transport instance.
@@ -5402,7 +5869,8 @@ def test_credentials_transport_error():
     )
     with pytest.raises(ValueError):
         client = ReservationServiceClient(
-            client_options={"scopes": ["1", "2"]}, transport=transport,
+            client_options={"scopes": ["1", "2"]},
+            transport=transport,
         )
 
 
@@ -5447,8 +5915,13 @@ def test_transport_adc(transport_class):
 
 def test_transport_grpc_default():
     # A client should use the gRPC transport by default.
-    client = ReservationServiceClient(credentials=credentials.AnonymousCredentials(),)
-    assert isinstance(client.transport, transports.ReservationServiceGrpcTransport,)
+    client = ReservationServiceClient(
+        credentials=credentials.AnonymousCredentials(),
+    )
+    assert isinstance(
+        client.transport,
+        transports.ReservationServiceGrpcTransport,
+    )
 
 
 def test_reservation_service_base_transport_error():
@@ -5508,7 +5981,8 @@ def test_reservation_service_base_transport_with_credentials_file():
         Transport.return_value = None
         load_creds.return_value = (credentials.AnonymousCredentials(), None)
         transport = transports.ReservationServiceTransport(
-            credentials_file="credentials.json", quota_project_id="octopus",
+            credentials_file="credentials.json",
+            quota_project_id="octopus",
         )
         load_creds.assert_called_once_with(
             "credentials.json",
@@ -5587,7 +6061,8 @@ def test_reservation_service_grpc_transport_channel():
 
     # Check that channel is used if provided.
     transport = transports.ReservationServiceGrpcTransport(
-        host="squid.clam.whelk", channel=channel,
+        host="squid.clam.whelk",
+        channel=channel,
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
@@ -5599,7 +6074,8 @@ def test_reservation_service_grpc_asyncio_transport_channel():
 
     # Check that channel is used if provided.
     transport = transports.ReservationServiceGrpcAsyncIOTransport(
-        host="squid.clam.whelk", channel=channel,
+        host="squid.clam.whelk",
+        channel=channel,
     )
     assert transport.grpc_channel == channel
     assert transport._host == "squid.clam.whelk:443"
@@ -5737,7 +6213,8 @@ def test_bi_reservation_path():
     location = "nautilus"
 
     expected = "projects/{project}/locations/{location}/bireservation".format(
-        project=project, location=location,
+        project=project,
+        location=location,
     )
     actual = ReservationServiceClient.bi_reservation_path(project, location)
     assert expected == actual
@@ -5761,7 +6238,9 @@ def test_capacity_commitment_path():
     capacity_commitment = "whelk"
 
     expected = "projects/{project}/locations/{location}/capacityCommitments/{capacity_commitment}".format(
-        project=project, location=location, capacity_commitment=capacity_commitment,
+        project=project,
+        location=location,
+        capacity_commitment=capacity_commitment,
     )
     actual = ReservationServiceClient.capacity_commitment_path(
         project, location, capacity_commitment
@@ -5787,8 +6266,12 @@ def test_reservation_path():
     location = "mussel"
     reservation = "winkle"
 
-    expected = "projects/{project}/locations/{location}/reservations/{reservation}".format(
-        project=project, location=location, reservation=reservation,
+    expected = (
+        "projects/{project}/locations/{location}/reservations/{reservation}".format(
+            project=project,
+            location=location,
+            reservation=reservation,
+        )
     )
     actual = ReservationServiceClient.reservation_path(project, location, reservation)
     assert expected == actual
@@ -5831,7 +6314,9 @@ def test_parse_common_billing_account_path():
 def test_common_folder_path():
     folder = "whelk"
 
-    expected = "folders/{folder}".format(folder=folder,)
+    expected = "folders/{folder}".format(
+        folder=folder,
+    )
     actual = ReservationServiceClient.common_folder_path(folder)
     assert expected == actual
 
@@ -5850,7 +6335,9 @@ def test_parse_common_folder_path():
 def test_common_organization_path():
     organization = "oyster"
 
-    expected = "organizations/{organization}".format(organization=organization,)
+    expected = "organizations/{organization}".format(
+        organization=organization,
+    )
     actual = ReservationServiceClient.common_organization_path(organization)
     assert expected == actual
 
@@ -5869,7 +6356,9 @@ def test_parse_common_organization_path():
 def test_common_project_path():
     project = "cuttlefish"
 
-    expected = "projects/{project}".format(project=project,)
+    expected = "projects/{project}".format(
+        project=project,
+    )
     actual = ReservationServiceClient.common_project_path(project)
     assert expected == actual
 
@@ -5890,7 +6379,8 @@ def test_common_location_path():
     location = "nautilus"
 
     expected = "projects/{project}/locations/{location}".format(
-        project=project, location=location,
+        project=project,
+        location=location,
     )
     actual = ReservationServiceClient.common_location_path(project, location)
     assert expected == actual
@@ -5915,7 +6405,8 @@ def test_client_withDEFAULT_CLIENT_INFO():
         transports.ReservationServiceTransport, "_prep_wrapped_messages"
     ) as prep:
         client = ReservationServiceClient(
-            credentials=credentials.AnonymousCredentials(), client_info=client_info,
+            credentials=credentials.AnonymousCredentials(),
+            client_info=client_info,
         )
         prep.assert_called_once_with(client_info)
 
@@ -5924,6 +6415,7 @@ def test_client_withDEFAULT_CLIENT_INFO():
     ) as prep:
         transport_class = ReservationServiceClient.get_transport_class()
         transport = transport_class(
-            credentials=credentials.AnonymousCredentials(), client_info=client_info,
+            credentials=credentials.AnonymousCredentials(),
+            client_info=client_info,
         )
         prep.assert_called_once_with(client_info)

@@ -74,10 +74,10 @@ class ReservationServiceTransport(abc.ABC):
             scope (Optional[Sequence[str]]): A list of scopes.
             quota_project_id (Optional[str]): An optional project to use for billing
                 and quota.
-            client_info (google.api_core.gapic_v1.client_info.ClientInfo):	
-                The client info used to send a user-agent string along with	
-                API requests. If ``None``, then default info will be used.	
-                Generally, you only need to set this if you're developing	
+            client_info (google.api_core.gapic_v1.client_info.ClientInfo):
+                The client info used to send a user-agent string along with
+                API requests. If ``None``, then default info will be used.
+                Generally, you only need to set this if you're developing
                 your own client library.
         """
         # Save the hostname. Default to port 443 (HTTPS) if none is specified.
@@ -112,19 +112,29 @@ class ReservationServiceTransport(abc.ABC):
         # Precompute the wrapped methods.
         self._wrapped_methods = {
             self.create_reservation: gapic_v1.method.wrap_method(
-                self.create_reservation, default_timeout=None, client_info=client_info,
+                self.create_reservation,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.list_reservations: gapic_v1.method.wrap_method(
-                self.list_reservations, default_timeout=None, client_info=client_info,
+                self.list_reservations,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.get_reservation: gapic_v1.method.wrap_method(
-                self.get_reservation, default_timeout=None, client_info=client_info,
+                self.get_reservation,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.delete_reservation: gapic_v1.method.wrap_method(
-                self.delete_reservation, default_timeout=None, client_info=client_info,
+                self.delete_reservation,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.update_reservation: gapic_v1.method.wrap_method(
-                self.update_reservation, default_timeout=None, client_info=client_info,
+                self.update_reservation,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.create_capacity_commitment: gapic_v1.method.wrap_method(
                 self.create_capacity_commitment,
@@ -162,22 +172,34 @@ class ReservationServiceTransport(abc.ABC):
                 client_info=client_info,
             ),
             self.create_assignment: gapic_v1.method.wrap_method(
-                self.create_assignment, default_timeout=None, client_info=client_info,
+                self.create_assignment,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.list_assignments: gapic_v1.method.wrap_method(
-                self.list_assignments, default_timeout=None, client_info=client_info,
+                self.list_assignments,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.delete_assignment: gapic_v1.method.wrap_method(
-                self.delete_assignment, default_timeout=None, client_info=client_info,
+                self.delete_assignment,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.search_assignments: gapic_v1.method.wrap_method(
-                self.search_assignments, default_timeout=None, client_info=client_info,
+                self.search_assignments,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.move_assignment: gapic_v1.method.wrap_method(
-                self.move_assignment, default_timeout=None, client_info=client_info,
+                self.move_assignment,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.get_bi_reservation: gapic_v1.method.wrap_method(
-                self.get_bi_reservation, default_timeout=None, client_info=client_info,
+                self.get_bi_reservation,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.update_bi_reservation: gapic_v1.method.wrap_method(
                 self.update_bi_reservation,
