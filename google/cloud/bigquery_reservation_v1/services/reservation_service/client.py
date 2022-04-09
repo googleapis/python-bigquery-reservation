@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 import warnings
 
@@ -531,7 +531,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_create_reservation():
                 # Create a client
@@ -648,7 +648,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_list_reservations():
                 # Create a client
@@ -756,7 +756,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_get_reservation():
                 # Create a client
@@ -855,7 +855,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_delete_reservation():
                 # Create a client
@@ -940,7 +940,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_update_reservation():
                 # Create a client
@@ -1044,7 +1044,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_create_capacity_commitment():
                 # Create a client
@@ -1164,7 +1164,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_list_capacity_commitments():
                 # Create a client
@@ -1274,7 +1274,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_get_capacity_commitment():
                 # Create a client
@@ -1385,7 +1385,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_delete_capacity_commitment():
                 # Create a client
@@ -1480,7 +1480,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_update_capacity_commitment():
                 # Create a client
@@ -1609,7 +1609,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_split_capacity_commitment():
                 # Create a client
@@ -1726,7 +1726,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_merge_capacity_commitments():
                 # Create a client
@@ -1887,7 +1887,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_create_assignment():
                 # Create a client
@@ -2015,7 +2015,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_list_assignments():
                 # Create a client
@@ -2144,7 +2144,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_delete_assignment():
                 # Create a client
@@ -2255,7 +2255,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_search_assignments():
                 # Create a client
@@ -2409,7 +2409,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_search_all_assignments():
                 # Create a client
@@ -2540,7 +2540,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_move_assignment():
                 # Create a client
@@ -2651,7 +2651,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_get_bi_reservation():
                 # Create a client
@@ -2754,7 +2754,7 @@ class ReservationServiceClient(metaclass=ReservationServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import bigquery_reservation_v1
+                    from google.cloud import bigquery_reservation_v1
 
             def sample_update_bi_reservation():
                 # Create a client
