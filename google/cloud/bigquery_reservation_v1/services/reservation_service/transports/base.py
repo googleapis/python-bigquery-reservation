@@ -15,19 +15,19 @@
 #
 import abc
 from typing import Awaitable, Callable, Dict, Optional, Sequence, Union
-import pkg_resources
 
-import google.auth  # type: ignore
 import google.api_core
 from google.api_core import exceptions as core_exceptions
 from google.api_core import gapic_v1
 from google.api_core import retry as retries
+import google.auth  # type: ignore
 from google.auth import credentials as ga_credentials  # type: ignore
 from google.oauth2 import service_account  # type: ignore
-
-from google.cloud.bigquery_reservation_v1.types import reservation
-from google.cloud.bigquery_reservation_v1.types import reservation as gcbr_reservation
 from google.protobuf import empty_pb2  # type: ignore
+import pkg_resources
+
+from google.cloud.bigquery_reservation_v1.types import reservation as gcbr_reservation
+from google.cloud.bigquery_reservation_v1.types import reservation
 
 try:
     DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
@@ -85,6 +85,7 @@ class ReservationServiceTransport(abc.ABC):
             always_use_jwt_access (Optional[bool]): Whether self signed JWT should
                 be used for service account credentials.
         """
+
         # Save the hostname. Default to port 443 (HTTPS) if none is specified.
         if ":" not in host:
             host += ":443"
@@ -126,7 +127,9 @@ class ReservationServiceTransport(abc.ABC):
         # Precompute the wrapped methods.
         self._wrapped_methods = {
             self.create_reservation: gapic_v1.method.wrap_method(
-                self.create_reservation, default_timeout=300.0, client_info=client_info,
+                self.create_reservation,
+                default_timeout=300.0,
+                client_info=client_info,
             ),
             self.list_reservations: gapic_v1.method.wrap_method(
                 self.list_reservations,
@@ -174,7 +177,9 @@ class ReservationServiceTransport(abc.ABC):
                 client_info=client_info,
             ),
             self.update_reservation: gapic_v1.method.wrap_method(
-                self.update_reservation, default_timeout=300.0, client_info=client_info,
+                self.update_reservation,
+                default_timeout=300.0,
+                client_info=client_info,
             ),
             self.create_capacity_commitment: gapic_v1.method.wrap_method(
                 self.create_capacity_commitment,
@@ -242,7 +247,9 @@ class ReservationServiceTransport(abc.ABC):
                 client_info=client_info,
             ),
             self.create_assignment: gapic_v1.method.wrap_method(
-                self.create_assignment, default_timeout=300.0, client_info=client_info,
+                self.create_assignment,
+                default_timeout=300.0,
+                client_info=client_info,
             ),
             self.list_assignments: gapic_v1.method.wrap_method(
                 self.list_assignments,
@@ -295,7 +302,14 @@ class ReservationServiceTransport(abc.ABC):
                 client_info=client_info,
             ),
             self.move_assignment: gapic_v1.method.wrap_method(
-                self.move_assignment, default_timeout=300.0, client_info=client_info,
+                self.move_assignment,
+                default_timeout=300.0,
+                client_info=client_info,
+            ),
+            self.update_assignment: gapic_v1.method.wrap_method(
+                self.update_assignment,
+                default_timeout=None,
+                client_info=client_info,
             ),
             self.get_bi_reservation: gapic_v1.method.wrap_method(
                 self.get_bi_reservation,
@@ -322,9 +336,9 @@ class ReservationServiceTransport(abc.ABC):
     def close(self):
         """Closes resources associated with the transport.
 
-       .. warning::
-            Only call this method if the transport is NOT shared
-            with other clients - this may cause errors in other clients!
+        .. warning::
+             Only call this method if the transport is NOT shared
+             with other clients - this may cause errors in other clients!
         """
         raise NotImplementedError()
 
@@ -517,6 +531,15 @@ class ReservationServiceTransport(abc.ABC):
         raise NotImplementedError()
 
     @property
+    def update_assignment(
+        self,
+    ) -> Callable[
+        [reservation.UpdateAssignmentRequest],
+        Union[reservation.Assignment, Awaitable[reservation.Assignment]],
+    ]:
+        raise NotImplementedError()
+
+    @property
     def get_bi_reservation(
         self,
     ) -> Callable[
@@ -532,6 +555,10 @@ class ReservationServiceTransport(abc.ABC):
         [reservation.UpdateBiReservationRequest],
         Union[reservation.BiReservation, Awaitable[reservation.BiReservation]],
     ]:
+        raise NotImplementedError()
+
+    @property
+    def kind(self) -> str:
         raise NotImplementedError()
 
 
