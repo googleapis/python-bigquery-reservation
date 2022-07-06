@@ -7321,7 +7321,6 @@ def test_reservation_service_transport_auth_adc(transport_class):
     [
         transports.ReservationServiceGrpcTransport,
         transports.ReservationServiceGrpcAsyncIOTransport,
-        transports.ReservationServiceRestTransport,
     ],
 )
 def test_reservation_service_transport_auth_gdch_credentials(transport_class):
