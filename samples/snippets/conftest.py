@@ -42,7 +42,9 @@ def project_id() -> str:
 
 
 @pytest.fixture(scope="session")
-def reservation_client(transport: str = "grpc") -> reservation_service.ReservationServiceClient:
+def reservation_client(
+    transport: str = "grpc",
+) -> reservation_service.ReservationServiceClient:
     return reservation_service.ReservationServiceClient(transport=transport)
 
 

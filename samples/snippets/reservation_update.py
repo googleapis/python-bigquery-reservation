@@ -16,7 +16,11 @@ from google.cloud.bigquery_reservation_v1.types import reservation as reservatio
 
 
 def update_reservation(
-    project_id: str, location: str, reservation_id: str, slot_capacity: str, transport: str
+    project_id: str,
+    location: str,
+    reservation_id: str,
+    slot_capacity: str,
+    transport: str,
 ) -> reservation_types.Reservation:
     original_project_id = project_id
     original_location = location
@@ -42,7 +46,7 @@ def update_reservation(
     slot_capacity = 50
 
     # TODO(developer): Choose a transport to use. Either 'grpc' or 'rest'
-    transport = 'grpc'
+    transport = "grpc"
 
     # [START_EXCLUDE]
     project_id = original_project_id
@@ -58,7 +62,9 @@ def update_reservation(
     )
     from google.protobuf import field_mask_pb2
 
-    reservation_client = reservation_service.ReservationServiceClient(transport=transport)
+    reservation_client = reservation_service.ReservationServiceClient(
+        transport=transport
+    )
 
     reservation_name = reservation_client.reservation_path(
         project_id, location, reservation_id

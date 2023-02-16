@@ -16,7 +16,11 @@ from google.cloud.bigquery_reservation_v1.types import reservation as reservatio
 
 
 def create_reservation(
-    project_id: str, location: str, reservation_id: str, slot_capacity: str, transport: str
+    project_id: str,
+    location: str,
+    reservation_id: str,
+    slot_capacity: str,
+    transport: str,
 ) -> reservation_types.Reservation:
     original_project_id = project_id
     original_location = location
@@ -42,7 +46,7 @@ def create_reservation(
     slot_capacity = 100
 
     # TODO(developer): Choose a transport to use. Either 'grpc' or 'rest'
-    transport = 'grpc'
+    transport = "grpc"
 
     # [START_EXCLUDE]
     project_id = original_project_id
@@ -57,7 +61,9 @@ def create_reservation(
         reservation as reservation_types,
     )
 
-    reservation_client = reservation_service.ReservationServiceClient(transport=transport)
+    reservation_client = reservation_service.ReservationServiceClient(
+        transport=transport
+    )
 
     parent = reservation_client.common_location_path(project_id, location)
 

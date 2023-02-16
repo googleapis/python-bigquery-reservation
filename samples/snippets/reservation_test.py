@@ -53,7 +53,11 @@ def reservation_id(
 
 @pytest.mark.parametrize("transport", ["grpc", "rest"])
 def test_reservation_samples(
-    capsys: pytest.CaptureFixture, project_id: str, location: str, reservation_id: str, transport: str
+    capsys: pytest.CaptureFixture,
+    project_id: str,
+    location: str,
+    reservation_id: str,
+    transport: str,
 ) -> None:
     slot_capacity = 100
     reservation = reservation_create.create_reservation(
@@ -73,7 +77,9 @@ def test_reservation_samples(
     out, _ = capsys.readouterr()
     assert f"Updated reservation: {reservation.name}" in out
 
-    reservation_delete.delete_reservation(project_id, location, reservation_id, transport)
+    reservation_delete.delete_reservation(
+        project_id, location, reservation_id, transport
+    )
     out, _ = capsys.readouterr()
     assert "Deleted reservation" in out
     assert reservation_id in out

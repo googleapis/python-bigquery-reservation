@@ -13,7 +13,9 @@
 # limitations under the License.
 
 
-def delete_reservation(project_id: str, location: str, reservation_id: str, transport: str) -> None:
+def delete_reservation(
+    project_id: str, location: str, reservation_id: str, transport: str
+) -> None:
     original_project_id = project_id
     original_location = location
     original_reservation_id = reservation_id
@@ -33,7 +35,7 @@ def delete_reservation(project_id: str, location: str, reservation_id: str, tran
     reservation_id = "sample-reservation"
 
     # TODO(developer): Choose a transport to use. Either 'grpc' or 'rest'
-    transport = 'grpc'
+    transport = "grpc"
 
     # [START_EXCLUDE]
     project_id = original_project_id
@@ -44,7 +46,9 @@ def delete_reservation(project_id: str, location: str, reservation_id: str, tran
 
     from google.cloud.bigquery_reservation_v1.services import reservation_service
 
-    reservation_client = reservation_service.ReservationServiceClient(transport=transport)
+    reservation_client = reservation_service.ReservationServiceClient(
+        transport=transport
+    )
     reservation_name = reservation_client.reservation_path(
         project_id, location, reservation_id
     )

@@ -18,7 +18,9 @@ import argparse
 from google.cloud import bigquery_reservation_v1
 
 
-def main(project_id: str = "your-project-id", location: str = "US", transport: str = "grpc") -> None:
+def main(
+    project_id: str = "your-project-id", location: str = "US", transport: str = "grpc"
+) -> None:
     # Constructs the client for interacting with the service.
     client = bigquery_reservation_v1.ReservationServiceClient(transport=transport)
 
