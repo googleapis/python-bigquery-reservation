@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.3](https://github.com/googleapis/python-bigquery-reservation/compare/v1.11.2...v1.11.3) (2023-09-11)
+
+
+### Documentation
+
+* Minor formatting ([#377](https://github.com/googleapis/python-bigquery-reservation/issues/377)) ([1fd7e69](https://github.com/googleapis/python-bigquery-reservation/commit/1fd7e69a0eeb98de9fd3092247eb9d06147cbad6))
+
 ## [1.11.2](https://github.com/googleapis/python-bigquery-reservation/compare/v1.11.1...v1.11.2) (2023-07-05)
 
 
